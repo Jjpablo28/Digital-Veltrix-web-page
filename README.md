@@ -1,12 +1,13 @@
 # Digital-Veltrix-web-page
 This repository contains the source code for the official website of Digital-Veltrix, a company dedicated to developing customized technological solutions for other organizations. Our goal is to help companies in various sectors drive their digital transformation through innovative, efficient projects tailored to their needs.
 
-## 📄 Licencia
+## 📄 License
 
-Este repositorio está protegido por derechos de autor.
+This repository is protected by copyright.
 
-© 2025 Digital-Veltrix. Todos los derechos reservados.  
-El código fuente de este proyecto ha sido publicado con fines informativos.  
-**No se permite su uso, modificación, distribución ni reutilización sin autorización expresa por escrito.**
+© 2025 Digital-Veltrix. All rights reserved.
 
-Consulta el archivo [`LICENSE`](./LICENSE) para más detalles.
+The source code for this project has been published for informational purposes only.
+**Use, modification, distribution, or reuse is prohibited without express written permission.**
+
+See the [`LICENSE`](./LICENSE) file for details.
