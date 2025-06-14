@@ -3,12 +3,13 @@ frontend:
   phases:
     preBuild:
       commands:
+        - cd Front-Angular/Front
         - npm ci
     build:
       commands:
-        - npm run build -- --configuration production --output-path=dist/browser --base-href /
+        - npm run build -- --configuration production
   artifacts:
-    baseDirectory: dist/browser
+    baseDirectory: dist/front
     files:
       - '**/*'
   cache:
