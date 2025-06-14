@@ -3,15 +3,17 @@ frontend:
   phases:
     preBuild:
       commands:
-        - cd Front-Angular/Front
-        - npm install
+        - cd Angular/project
+        - npm ci
     build:
       commands:
-        - npm run build
+        - npm run build -- --configuration production
+        - echo "🌟 Listado completo de dist/project/browser:"
+        - ls -R dist/project/browser
   artifacts:
-    baseDirectory: Front-Angular/Front/dist
+    baseDirectory: Angular/project/dist/project/browser
     files:
       - '**/*'
   cache:
     paths:
-      - Front-Angular/Front/node_modules/**/*
+      - node_modules/**/*
