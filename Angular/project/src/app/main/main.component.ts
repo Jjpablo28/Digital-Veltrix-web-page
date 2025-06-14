@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef,ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {MainService} from "./main.service";
 
@@ -7,10 +7,10 @@ import {MainService} from "./main.service";
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })
-export class MainComponent implements AfterViewInit,OnInit {
+export class MainComponent implements AfterViewInit {
 
 
-  
+
 
   nombre: string = '';
   correo: string = '';
