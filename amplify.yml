@@ -7,11 +7,11 @@ frontend:
         - npm install
     build:
       commands:
-        - npm run build
+        - npm run build -- --configuration production --project Front
   artifacts:
-    baseDirectory: Front-Angular/Front/dist
+    baseDirectory: Front-Angular/Front/dist/front
     files:
       - '**/*'
   cache:
     paths:
-      - Front-Angular/Front/node_modules/**/*
+      - node_modules/**/*
