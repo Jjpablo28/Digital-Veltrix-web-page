@@ -5,9 +5,12 @@ frontend:
       commands:
         - cd Angular/project
         - npm ci
-    build:
-      commands:
-        - npm run build -- --configuration production
+   build:
+  commands:
+    - npm run build -- --configuration production
+    - echo 
+    - ls -R dist/project
+
   artifacts:
     baseDirectory: Angular/project/dist/project
     files:
