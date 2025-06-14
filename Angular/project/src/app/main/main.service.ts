@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class MainService {
 
-  private baseUrl = 'http://localhost:8080/email'; // Asegúrate de que esta URL sea correcta
+  private baseUrl = 'http://localhost:8081/email'; // Asegúrate de que esta URL sea correcta
 
   constructor(private http: HttpClient) { }
 
