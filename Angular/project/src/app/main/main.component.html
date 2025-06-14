@@ -123,11 +123,19 @@
   <div class="container">
     <h2>Contáctanos</h2>
     <form (submit)="enviarFormulario()" #form="ngForm">
-      <input type="text" name="nombre" placeholder="Tu nombre" required ngModel>
-      <input type="email" name="correo" placeholder="Tu correo electrónico" required ngModel>
-      <input type="text" name="asunto" placeholder="Asunto" required ngModel>
-      <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required ngModel></textarea>
-      <button type="submit">Enviar</button>
+      <input type="text" name="nombre" placeholder="Tu nombre" required [(ngModel)]="nombre">
+
+      <input type="email" name="correo" placeholder="Tu correo electrónico" required [(ngModel)]="correo">
+
+      <input type="text" name="asunto" placeholder="Asunto" required [(ngModel)]="asunto">
+
+      <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required [(ngModel)]="cuerpoMensaje"></textarea>
+
+      <button type="submit" [disabled]="form.invalid">Enviar</button>
+
+      <div *ngIf="mensajeEstado" [ngClass]="{'alert-success': isSuccess, 'alert-danger': !isSuccess}" class="mt-3">
+        {{ mensajeEstado }}
+      </div>
     </form>
   </div>
 </section>
