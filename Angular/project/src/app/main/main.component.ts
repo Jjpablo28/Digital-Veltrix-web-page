@@ -1,14 +1,43 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })
-export class MainComponent {
+export class MainComponent implements AfterViewInit {
+
+
+  ngOnInit() {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+
+  constructor(private route: ActivatedRoute) {
+  }
+
+  ngAfterViewInit() {
+    this.route.fragment.subscribe(fragment => {
+      if (fragment) {
+        const el = document.getElementById(fragment);
+        if (el) {
+          el.scrollIntoView({behavior: 'smooth'});
+        }
+      }
+    });
+  }
+
+  nombre: string = '';
+  correo: string = '';
+  asunto: string = '';
+  mensaje: string = '';
 
 
   activo: number | null = null;
+
+  enviarFormulario() {
+
+  }
 
   preguntas = [
     {
@@ -56,6 +85,10 @@ export class MainComponent {
   toggle(index: number) {
     this.activo = this.activo === index ? null : index;
   }
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
 }
 
 
