@@ -10,9 +10,7 @@ import {MainService} from "./main.service";
 export class MainComponent implements AfterViewInit,OnInit {
 
 
-  ngOnInit() {
-    window.scrollTo({ top: 0, behavior: 'auto' });
-  }
+  
 
   nombre: string = '';
   correo: string = '';
