@@ -14,4 +14,4 @@ frontend:
       - '**/*'
   cache:
     paths:
-      - Angular/project/node_modules/**/*
+      - node_modules/**/*
