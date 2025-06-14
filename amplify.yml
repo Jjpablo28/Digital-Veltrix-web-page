@@ -9,9 +9,9 @@ frontend:
       commands:
         - npm run build -- --configuration production --project Front
   artifacts:
-    baseDirectory: Front-Angular/Front/dist/front
+    baseDirectory:  Front-Angular/Front/dist/front
     files:
       - '**/*'
   cache:
     paths:
-      - node_modules/**/*
+      - Front-Angular/Front/node_modules/**/* 
