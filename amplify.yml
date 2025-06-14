@@ -5,10 +5,10 @@ frontend:
         - cd Front-Angular/Front
         - npm install
     build:
-      commands:
-        - npm run build
+       commands:
+        - npm run build -- --configuration production --project Front
   artifacts:
-    baseDirectory: Front-Angular/Front/dist/front
+    baseDirectory: dist/front
     files:
       - '**/*'
   cache:
