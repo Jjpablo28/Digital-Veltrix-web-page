@@ -3,22 +3,17 @@ frontend:
   phases:
     preBuild:
       commands:
-        # ¡CRUCIAL! Cambiamos el directorio a donde realmente está tu package.json y package-lock.json
-        - cd Front-Angular/Front
+        # - cd Front-Angular/Front # <--- ¡ELIMINAR ESTA LÍNEA!
         - npm ci
     build:
       commands:
-        # Estos comandos se ejecutarán desde Front-Angular/Front
-        # Eliminamos --project Front porque ya estamos en la raíz del proyecto 'Front'
-        - npm run build -- --configuration production
+        # Modificar el comando de build para apuntar al proyecto y generar en la raíz de ese proyecto
+        - ng build --configuration production --project Front --output-path Front-Angular/Front
   artifacts:
-    # ***** ¡CAMBIO AQUÍ! *****
-    # La ruta baseDirectory debe ser relativa a la raíz del REPOSITORIO
-    # Asegúrate de que esta ruta completa sea correcta:
-    baseDirectory: Front-Angular/Front/dist/browser
+    # Ahora la baseDirectory es el proyecto en sí, si el output se genera allí
+    baseDirectory: Front-Angular/Front
     files:
       - '**/*'
   cache:
     paths:
-      # La ruta del caché también es relativa a la raíz del REPOSITORIO
       - Front-Angular/Front/node_modules/**/*
