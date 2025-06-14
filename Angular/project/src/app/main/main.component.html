@@ -2,7 +2,7 @@
   <div class="container">
     <h1>Te ayudamos a crear tu propio sistema</h1>
     <p style="font-weight: 500">Contactanos y personaliza tu sitio como quieras.</p>
-    <button class="contact">Contactanos</button>
+    <button class="contact" [routerLink]="['/']" fragment="contacto">Contactanos</button>
   </div>
 </section>
 
@@ -16,7 +16,7 @@
     </div>
   </div>
 </section>
-<section class="about-us section-with-image">
+<section class="about-us section-with-image" id="nosotros" #nosotros>
   <div class="container">
     <div class="content">
       <div class="text">
@@ -68,7 +68,7 @@
 </section>
 
 
-<section class="services">
+<section class="services" id="servicios" #servicios>
   <div class="container">
     <h2>¿Qué hacemos?</h2>
     <div class="service-grid">
@@ -119,9 +119,26 @@
   </div>
 </section>
 
-<section class="contacto">
-
+<section class="contact-form" id="contacto" #contacto>
+  <div class="container">
+    <h2>Contáctanos</h2>
+    <form (submit)="enviarFormulario()" #form="ngForm">
+      <input type="text" name="nombre" placeholder="Tu nombre" required ngModel>
+      <input type="email" name="correo" placeholder="Tu correo electrónico" required ngModel>
+      <input type="text" name="asunto" placeholder="Asunto" required ngModel>
+      <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required ngModel></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
 </section>
 
+
+<button class="scroll-to-top" (click)="scrollToTop()" >
+  <svg class="svgIcon" viewBox="0 0 384 512">
+    <path
+      d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+    ></path>
+  </svg>
+</button>
 
 

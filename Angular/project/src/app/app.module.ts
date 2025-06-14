@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {NavbarComponent} from "./navbar/navbar.component";
 import {FooterComponent} from "./footer/footer.component";
 import {MainComponent} from "./main/main.component";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {MainComponent} from "./main/main.component";
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
 
   ],
