@@ -14,7 +14,7 @@ frontend:
   artifacts:
     # La ruta baseDirectory es relativa a la raíz del REPOSITORIO
     # Si tu build de Angular coloca los archivos en 'dist/browser' dentro de Front-Angular/Front, esta ruta es correcta.
-    baseDirectory: Digital-Veltrix-web-page/Front-Angular/Front/dist/browser
+    baseDirectory: dist/browser
     files:
       - '**/*'
   cache:
