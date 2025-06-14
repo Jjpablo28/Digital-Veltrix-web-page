@@ -3,17 +3,27 @@ frontend:
   phases:
     preBuild:
       commands:
-        # - cd Front-Angular/Front # <--- ¡ELIMINAR ESTA LÍNEA!
+        # 1. Cambia el directorio de trabajo a la raíz de tu proyecto Angular.
+        #    Esto es crucial para que 'npm ci' y 'npm run build' encuentren
+        #    los archivos 'package.json' y 'angular.json' correctos.
+        - cd Front-Angular/Front 
         - npm ci
     build:
       commands:
-        # Modificar el comando de build para apuntar al proyecto y generar en la raíz de ese proyecto
-        - ng build --configuration production --project Front --output-path Front-Angular/Front
+        # 2. Compila tu aplicación Angular en modo producción.
+        #    Este comando se ejecuta desde el directorio 'Front-Angular/Front'
+        #    y generará la carpeta 'dist/browser' dentro de él.
+        - npm run build -- --configuration production
   artifacts:
-    # Ahora la baseDirectory es el proyecto en sí, si el output se genera allí
-    baseDirectory: Front-Angular/Front
+    # 3. Especifica el directorio base donde Amplify encontrará los archivos
+    #    para el despliegue. Esta ruta DEBE ser relativa a la RAÍZ de tu repositorio.
+    #    Ya que el 'build' se ejecuta dentro de 'Front-Angular/Front' y produce
+    #    'dist/browser', la ruta completa desde la raíz del repositorio es:
+    baseDirectory: Front-Angular/Front/dist/browser
     files:
       - '**/*'
   cache:
     paths:
+      # 4. Configura la caché para 'node_modules' para acelerar futuros despliegues.
+      #    La ruta de la caché también es relativa a la raíz del REPOSITORIO.
       - Front-Angular/Front/node_modules/**/*
