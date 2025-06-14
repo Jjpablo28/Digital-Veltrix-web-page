@@ -1,8 +1,25 @@
 <section class="hero">
   <div class="container">
     <h1>Te ayudamos a crear tu propio sistema</h1>
-    <p style="font-weight: 500">Contactanos y personaliza tu sitio como quieras.</p>
-    <button class="contact">Contactanos</button>
+    <p>Contactanos y personaliza tu sitio como quieras.</p>
+    <button class="contact" (click)="toggleContactForm()">Contactanos</button>
+    <div class="contact-form" *ngIf="isContactFormVisible">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Gmail:</label>
+          <input type="email" id="email" class="form-control" [(ngModel)]="contact.email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="subject">Asunto:</label>
+          <input type="text" id="subject" class="form-control" [(ngModel)]="contact.subject" name="subject" required />
+        </div>
+        <div class="form-group">
+          <label for="body">Cuerpo:</label>
+          <textarea id="body" class="form-control" rows="5" [(ngModel)]="contact.body" name="body" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Enviar</button>
+      </form>
+    </div>
   </div>
 </section>
 

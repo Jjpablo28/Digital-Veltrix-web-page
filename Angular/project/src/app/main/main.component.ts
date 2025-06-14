@@ -6,7 +6,20 @@ import { Component } from '@angular/core';
   styleUrl: './main.component.scss'
 })
 export class MainComponent {
-
+  isContactFormVisible = false;
+  contact = {
+    email: '',
+    subject: '',
+    body: ''
+  };
+  toggleContactForm() {
+    this.isContactFormVisible = !this.isContactFormVisible;
+  }
+  onSubmit() {
+    console.log('Formulario enviado:', this.contact);
+    this.contact = { email: '', subject: '', body: '' };
+    this.isContactFormVisible = false;
+  }
 
   activo: number | null = null;
 
