@@ -7,11 +7,12 @@ frontend:
         - npm ci
     build:
       commands:
-        - npm run build -- --configuration production --project Front
+        - npm run build -- --configuration production --output-path=dist
   artifacts:
-    baseDirectory: Front-Angular/Front/dist/front
+    baseDirectory: Front-Angular/Front/dist
     files:
       - '**/*'
   cache:
     paths:
-      - Front-Angular/Front/node_modules/**/* 
+      - Front-Angular/Front/node_modules/**/*
+
