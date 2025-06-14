@@ -3,20 +3,17 @@ frontend:
   phases:
     preBuild:
       commands:
-        # Nos movemos al directorio del proyecto Angular
-        - cd Front-Angular/Front
+        - cd Angular/project
         - npm ci
     build:
       commands:
-        # Compila la aplicación Angular en modo producción.
-        # Esto genera la carpeta 'dist/browser' dentro de 'Front-Angular/Front'.
         - npm run build -- --configuration production
+        - echo "🌟 Listado completo de dist/project/browser:"
+        - ls -R dist/project/browser
   artifacts:
-    # El baseDirectory debe ser la ruta a la carpeta 'browser' que contiene el index.html,
-    # relativa a la raíz de TU REPOSITORIO (Digital-Veltrix-web-page).
-    baseDirectory: Front-Angular/Front/dist/browser
+    baseDirectory: Angular/project/dist/project/browser
     files:
       - '**/*'
   cache:
     paths:
-      - Front-Angular/Front/node_modules/**/*
+      - node_modules/**/*
