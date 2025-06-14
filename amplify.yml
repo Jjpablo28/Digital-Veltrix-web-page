@@ -4,12 +4,12 @@ frontend:
     preBuild:
       commands:
         - cd Front-Angular/Front
-        - npm install
+        - npm ci
     build:
       commands:
         - npm run build -- --configuration production --project Front
   artifacts:
-    baseDirectory:  Front-Angular/Front/dist/front
+    baseDirectory: Front-Angular/Front/dist/front
     files:
       - '**/*'
   cache:
