@@ -1,0 +1,17 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - cd Front-Angular/Front
+        - npm install
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: Front-Angular/Front/dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - Front-Angular/Front/node_modules/**/*

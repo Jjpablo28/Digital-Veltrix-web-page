@@ -1,0 +1,52 @@
+// Color Variables
+$blue-dark: #0A2E36;
+$blue-light: #00C4CC;
+$green-light: #00E6B8;
+$green-dark: #007F66;
+$white: #FFFFFF;
+
+// Base Styles
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: $white;
+  color: $blue-dark;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $blue-dark;
+  margin-bottom: 0.5em;
+}
+
+a {
+  color: $blue-light;
+  text-decoration: none;
+
+  &:hover {
+    color: $green-dark;
+    text-decoration: underline;
+  }
+}
+
+button {
+  background-color: $green-light;
+  color: $blue-dark;
+  border: none;
+  padding: 0.6em 1.2em;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $green-dark;
+  }
+}
