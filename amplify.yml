@@ -1,3 +1,4 @@
+version: 1
 frontend:
   phases:
     preBuild:
@@ -5,7 +6,7 @@ frontend:
         - cd Front-Angular/Front
         - npm install
     build:
-       commands:
+      commands:
         - npm run build -- --configuration production --project Front
   artifacts:
     baseDirectory: Front-Angular/Front/dist/front
