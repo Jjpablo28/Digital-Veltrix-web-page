@@ -1,20 +1,75 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {MainService} from "./main.service";
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })
-export class MainComponent implements AfterViewInit {
+export class MainComponent implements AfterViewInit,OnInit {
 
 
   ngOnInit() {
     window.scrollTo({ top: 0, behavior: 'auto' });
   }
 
-  constructor(private route: ActivatedRoute) {
+  nombre: string = '';
+  correo: string = '';
+  asunto: string = '';
+  cuerpoMensaje: string = '';
+
+  // Variables para mostrar el estado del envío al usuario
+  mensajeEstado: string = '';
+  isSuccess: boolean = false;
+
+  constructor(private route: ActivatedRoute, private mainService: MainService)  {
   }
+
+  /**
+   * Método que se ejecuta cuando el formulario es enviado.
+   * Recopila los datos del formulario y los envía al servicio de contacto.
+   */
+  enviarFormulario() {
+    // Limpia cualquier mensaje de estado anterior
+    this.mensajeEstado = '';
+    this.isSuccess = false;
+
+    // Crea un objeto con los datos del formulario que coincide con la estructura de tu EmailDTO
+    const datosContacto = {
+      nombreRemitente: this.nombre,
+      correoRemitente: this.correo,
+      asunto: this.asunto,
+      mensaje: this.cuerpoMensaje
+    };
+
+    // Llama al método de tu servicio para enviar el mensaje al backend
+    this.mainService.enviarMensajeContacto(datosContacto).subscribe(
+      response => {
+        // Manejo de la respuesta exitosa
+        this.mensajeEstado = response.message; // El backend envía un campo 'message'
+        this.isSuccess = response.success;     // El backend envía un campo 'success' (true/false)
+        this.limpiarFormulario(); // Limpia el formulario después de un envío exitoso
+      },
+      error => {
+        // Manejo de errores
+        this.mensajeEstado = error.error?.message || 'Error desconocido al enviar el mensaje. Por favor, inténtalo de nuevo.';
+        this.isSuccess = false; // Indica que fue un error
+        console.error('Error al enviar el correo:', error);
+      }
+    );
+  }
+
+  /**
+   * Método para limpiar los campos del formulario después de un envío.
+   */
+  limpiarFormulario() {
+    this.nombre = '';
+    this.correo = '';
+    this.asunto = '';
+    this.cuerpoMensaje = '';
+  }
+
 
   ngAfterViewInit() {
     this.route.fragment.subscribe(fragment => {
@@ -27,17 +82,8 @@ export class MainComponent implements AfterViewInit {
     });
   }
 
-  nombre: string = '';
-  correo: string = '';
-  asunto: string = '';
-  mensaje: string = '';
-
 
   activo: number | null = null;
-
-  enviarFormulario() {
-
-  }
 
   preguntas = [
     {
