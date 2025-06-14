@@ -3,16 +3,26 @@ frontend:
   phases:
     preBuild:
       commands:
-        - cd Front-Angular/Front
-        - npm ci
+        - cd Front-Angular/Front # Entramos en la carpeta de tu proyecto Angular
+        - npm ci # Instalamos las dependencias
     build:
       commands:
+        # 1. Compila la aplicación Angular en modo producción.
+        #    Esto creará la carpeta 'dist/browser' DENTRO de 'Front-Angular/Front'.
         - npm run build -- --configuration production
-    postBuild:
+    postBuild: # <--- ¡Fase crucial para preparar los artefactos!
       commands:
-        - cp -R dist/browser/* $CODEBUILD_SRC_DIR/
+        # 2. Crea un directorio temporal 'amplify-output' en la raíz del repositorio.
+        #    La variable $CODEBUILD_SRC_DIR apunta a la raíz de tu repositorio clonado por Amplify.
+        - mkdir -p $CODEBUILD_SRC_DIR/amplify-output
+        # 3. Copia TODO el CONTENIDO de 'Front-Angular/Front/dist/browser'
+        #    a la nueva carpeta 'amplify-output' en la raíz.
+        #    El '.' al final de 'dist/browser/.' asegura que se copie el contenido, no la carpeta 'browser' misma.
+        - cp -R dist/browser/. $CODEBUILD_SRC_DIR/amplify-output/
   artifacts:
-    baseDirectory: .
+    # 4. Le decimos a Amplify que el directorio base de los artefactos
+    #    es ahora la carpeta 'amplify-output' que creamos en la raíz del repositorio.
+    baseDirectory: amplify-output
     files:
       - '**/*'
   cache:
