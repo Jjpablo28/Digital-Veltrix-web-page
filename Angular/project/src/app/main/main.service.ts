@@ -19,7 +19,7 @@ interface RespuestaCorreo {
 })
 export class MainService {
 
-  private apiUrl = 'https://tudominio.com/api/contacto'; // Cambia esto por la URL real de tu backend
+  private apiUrl = 'http://localhost:8081/email/enviarCorreoContacto'; 
 
   constructor(private http: HttpClient) { }
 

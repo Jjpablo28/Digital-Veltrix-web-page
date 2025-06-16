@@ -9,6 +9,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,8 @@ import jakarta.mail.MessagingException;
  */
 @RestController
 @RequestMapping("/email")
+@CrossOrigin(origins = { "*" })
+
 public class EmailController {
 
 	/**
@@ -72,6 +75,7 @@ public class EmailController {
 	 */
 	@PostMapping("/enviarCorreoContacto")
 	public ResponseEntity<?> enviarCorreoContacto(@RequestBody EmailDTO emailDTO) {
+		System.out.println("si");
 		// Dirección de correo a la que se enviará el mensaje (tu correo de soporte, por ejemplo)
 		// ¡IMPORTANTE! Cambia esto por tu correo real de soporte o contacto de la empresa.
 		String destinoFijoEmpresa = "veltrixdigital.co@gmail.com";
