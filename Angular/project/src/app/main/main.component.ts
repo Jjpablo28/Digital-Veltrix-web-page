@@ -1,25 +1,84 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {MainService} from "./main.service";
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })
-export class MainComponent {
-  isContactFormVisible = false;
-  contact = {
-    email: '',
-    subject: '',
-    body: ''
-  };
-  toggleContactForm() {
-    this.isContactFormVisible = !this.isContactFormVisible;
+export class MainComponent implements AfterViewInit,OnInit {
+
+
+  ngOnInit() {
+    window.scrollTo({ top: 0, behavior: 'auto' });
   }
-  onSubmit() {
-    console.log('Formulario enviado:', this.contact);
-    this.contact = { email: '', subject: '', body: '' };
-    this.isContactFormVisible = false;
+
+  nombre: string = '';
+  correo: string = '';
+  asunto: string = '';
+  cuerpoMensaje: string = '';
+
+  // Variables para mostrar el estado del envío al usuario
+  mensajeEstado: string = '';
+  isSuccess: boolean = false;
+
+  constructor(private route: ActivatedRoute, private mainService: MainService)  {
   }
+
+  /**
+   * Método que se ejecuta cuando el formulario es enviado.
+   * Recopila los datos del formulario y los envía al servicio de contacto.
+   */
+  enviarFormulario() {
+    // Limpia cualquier mensaje de estado anterior
+    this.mensajeEstado = '';
+    this.isSuccess = false;
+
+    // Crea un objeto con los datos del formulario que coincide con la estructura de tu EmailDTO
+    const datosContacto = {
+      nombreRemitente: this.nombre,
+      correoRemitente: this.correo,
+      asunto: this.asunto,
+      mensaje: this.cuerpoMensaje
+    };
+
+    // Llama al método de tu servicio para enviar el mensaje al backend
+    this.mainService.enviarMensajeContacto(datosContacto).subscribe(
+      (response: { message: string; success: boolean }) => {
+        this.mensajeEstado = response.message;
+        this.isSuccess = response.success;
+        this.limpiarFormulario();
+      },
+      (error: any) => {
+        this.mensajeEstado = error.error?.message || 'Error desconocido al enviar el mensaje. Por favor, inténtalo de nuevo.';
+        this.isSuccess = false;
+        console.error('Error al enviar el correo:', error);
+      }
+    );
+  }
+    /**
+   * Método para limpiar los campos del formulario después de un envío.
+   */
+  limpiarFormulario() {
+    this.nombre = '';
+    this.correo = '';
+    this.asunto = '';
+    this.cuerpoMensaje = '';
+  }
+
+
+  ngAfterViewInit() {
+    this.route.fragment.subscribe(fragment => {
+      if (fragment) {
+        const el = document.getElementById(fragment);
+        if (el) {
+          el.scrollIntoView({behavior: 'smooth'});
+        }
+      }
+    });
+  }
+
 
   activo: number | null = null;
 
@@ -69,6 +128,9 @@ export class MainComponent {
   toggle(index: number) {
     this.activo = this.activo === index ? null : index;
   }
-}
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
+}
 
