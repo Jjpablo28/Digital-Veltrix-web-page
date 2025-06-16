@@ -19,7 +19,7 @@ interface RespuestaCorreo {
 })
 export class MainService {
 
-  private apiUrl = 'http://localhost:8081/email/enviarCorreoContacto'; 
+  private apiUrl = 'http://digitalvertix-env.eba-xxxxx.us-east-1.elasticbeanstalk.com/';
 
   constructor(private http: HttpClient) { }
 
