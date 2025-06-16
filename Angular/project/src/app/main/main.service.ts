@@ -19,7 +19,7 @@ interface RespuestaCorreo {
 })
 export class MainService {
 
-  private apiUrl = 'https://digitalvertix-backend-env.eba-h2g6t3em.us-east-1.elasticbeanstalk.com/email/enviarCorreoContacto';
+  private apiUrl = 'http://digitalvertix-backend-env.eba-h2g6t3em.us-east-1.elasticbeanstalk.com/email/enviarCorreoContacto';
 
   constructor(private http: HttpClient) { }
 
