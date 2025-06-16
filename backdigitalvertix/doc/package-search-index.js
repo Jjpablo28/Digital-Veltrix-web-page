@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.digital.vertix.backdigitalvertix.configuration"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.digital.vertix.backdigitalvertix"},{"l":"com.digital.vertix.backdigitalvertix.configuration"},{"l":"com.digital.vertix.backdigitalvertix.controller"},{"l":"com.digital.vertix.backdigitalvertix.dto"},{"l":"com.digital.vertix.backdigitalvertix.service"}];updateSearchResults();
