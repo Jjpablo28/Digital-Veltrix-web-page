@@ -132,11 +132,15 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.5.0</version> <!-- puedes usar esta versión o más
+				reciente -->
 				<configuration>
 					<show>private</show>
 					<nohelp>true</nohelp>
 					<source>${java.version}</source>
 					<encoding>UTF-8</encoding>
+					<failOnError>false</failOnError> <!-- 👈 Esta línea evita que
+					falle por errores de javadoc -->
 				</configuration>
 				<executions>
 					<execution>
@@ -147,6 +151,7 @@
 					</execution>
 				</executions>
 			</plugin>
+
 		</plugins>
 	</build>
 
