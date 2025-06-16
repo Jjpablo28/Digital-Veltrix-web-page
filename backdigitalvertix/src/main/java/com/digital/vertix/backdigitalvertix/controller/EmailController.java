@@ -75,7 +75,6 @@ public class EmailController {
 	 */
 	@PostMapping("/enviarCorreoContacto")
 	public ResponseEntity<?> enviarCorreoContacto(@RequestBody EmailDTO emailDTO) {
-		System.out.println("si");
 		// Dirección de correo a la que se enviará el mensaje (tu correo de soporte, por ejemplo)
 		// ¡IMPORTANTE! Cambia esto por tu correo real de soporte o contacto de la empresa.
 		String destinoFijoEmpresa = "veltrixdigital.co@gmail.com";
