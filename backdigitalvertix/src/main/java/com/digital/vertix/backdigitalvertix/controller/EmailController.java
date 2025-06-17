@@ -130,7 +130,7 @@ public class EmailController {
 			errors.put("mensaje", "El mensaje no puede estar vacío.");
 		}
 		// Puedes añadir una validación de longitud mínima para el mensaje si lo deseas
-		if (emailDTO.getMensaje() != null && emailDTO.getMensaje().trim().length() < 10) {
+		if (emailDTO.getMensaje() != null && emailDTO.getMensaje().trim().length() < 2) {
 			errors.put("mensaje", "El mensaje debe tener al menos 10 caracteres.");
 		}
 
