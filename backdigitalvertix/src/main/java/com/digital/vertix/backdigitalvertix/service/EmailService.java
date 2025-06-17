@@ -48,8 +48,9 @@ public class EmailService {
 
 		helper.setTo(destino);
 		helper.setSubject(asunto);
-		helper.setFrom("veltrixdigital.co@gmail.com"); // Correo del remitente configurado en tu aplicación
-
+		helper.setFrom("veltrixdigital.co@gmail.com");
+		// Correo del remitente configurado en tu aplicación
+		helper.setReplyTo(destino);
 		helper.setText(contenidoHtml, true);
 
 		mailSender.send(mensaje);
