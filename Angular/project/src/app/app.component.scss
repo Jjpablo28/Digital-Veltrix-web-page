@@ -13,3 +13,70 @@ router-outlet {
   flex: 1;
   display: block;
 }
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-to-top {
+  z-index: 999;
+  position: fixed;
+  bottom: 6rem;
+  right: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #0f172a;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  animation: fadeInUp 0.4s ease forwards;
+
+  &:hover {
+    background-color: #10b981;
+  }
+
+  .svgIcon {
+    width: 18px;
+    height: 18px;
+    fill: white;
+  }
+}
+
+
+.btn-whatsapp {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 998;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #25d366;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+
+  img {
+    width: 26px;
+    height: 26px;
+    filter: brightness(0) invert(1);
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

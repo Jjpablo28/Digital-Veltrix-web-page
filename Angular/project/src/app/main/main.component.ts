@@ -109,7 +109,7 @@ export class MainComponent implements AfterViewInit,OnInit {
     },
     {
       pregunta: '¿Puedo solicitar solo el diseño o también el desarrollo completo?',
-      respuesta: 'Ofrecemos ambos servicios, juntos o por separado.'
+      respuesta: 'Ofrecemos los dos servicios, juntos o por separado.'
     },
     {
       pregunta: '¿Ofrecen mantenimiento o soporte después de entregar el proyecto?',
@@ -130,7 +130,13 @@ export class MainComponent implements AfterViewInit,OnInit {
   }
   scrollToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
 
+  }
+  irA(id: string) {
+    const elemento = document.getElementById(id);
+    if (elemento) {
+      elemento.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }
 

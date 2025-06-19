@@ -3,8 +3,8 @@
     <div class="footer-column">
       <h4>Digital Veltrix</h4>
       <ul>
-        <li><a href="#nosotros">¿Quiénes somos?</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a (click)="scrollToId('nosotros')">¿Quiénes somos?</a></li>
+        <li><a (click)="scrollToId('contacto')">Contacto</a></li>
 
       </ul>
     </div>
@@ -22,7 +22,7 @@
     <div class="footer-column">
       <h4>Soporte</h4>
       <ul>
-        <li><a href="#contacto">Contáctanos</a></li>
+        <li><a (click)="scrollToId('contacto')">Contáctanos</a></li>
       </ul>
     </div>
 
@@ -32,6 +32,7 @@
         <a href="#"><img src="assets/img/logos/whatsapp.svg" alt="WhatsApp" /></a>
         <a href="#"><img src="assets/img/logos/instagram.svg" alt="Instagram" /></a>
         <a href="#"><img src="assets/img/logos/linkedin.svg" alt="LinkedIn" /></a>
+        <a href="mailto:veltrixdigital.co@gmail.com"><img src="assets/img/logos/gmail.svg" alt="Gmail" /></a>
       </div>
     </div>
 
@@ -47,9 +48,9 @@
   <div class="footer-bottom">
     <p>&copy; 2025 Digital Veltrix. Todos los derechos reservados.</p>
     <div class="footer-links">
-      <a href="#">Términos y condiciones</a>
-      <a href="#">Política de privacidad</a>
-      <a href="#">Cookies</a>
+      <a [routerLink]="['/tyc']">Términos y condiciones</a>
+      <a [routerLink]="['/politica-privacidad']">Política de privacidad</a>
+      <a [routerLink]="['/cookies']">Cookies</a>
     </div>
   </div>
 </footer>

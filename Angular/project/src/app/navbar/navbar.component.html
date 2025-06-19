@@ -3,16 +3,16 @@
   <div class="nav-header">
 
     <div class="leading-icon">
-      <img src="./assets/img/Logo.png" alt="Logo" />
+      <img [routerLink]="['/']" src="./assets/img/Logo.png" alt="Logo"  />
     </div>
-    <div class="headline">Digital Veltrix</div>
+    <div [routerLink]="['/']" class="headline">Digital Veltrix</div>
   </div>
   <div style="display: flex; align-items: center; gap: 10px;">
 
 
-    <button class="btn" [routerLink]="['/']" fragment="nosotros">Quiénes Somos</button>
-    <button class="btn" [routerLink]="['/']" fragment="servicios">Qué Ofrecemos</button>
-    <button class="btn" [routerLink]="['/']" fragment="contacto">Contáctanos</button>
+    <button class="btn" (click)="scrollToId('nosotros')">Quiénes Somos</button>
+    <button class="btn" (click)="scrollToId('servicios')">Qué Ofrecemos</button>
+    <button class="btn" (click)="scrollToId('contacto')">Contáctanos</button>
 
   </div>
 </div>

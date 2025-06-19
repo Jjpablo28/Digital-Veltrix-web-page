@@ -3,13 +3,26 @@
   <div class="container">
     <div class="hero-content">
       <h1>Transforma tu idea en una solución digital</h1>
-      <p class="subtitle">Creamos sistemas personalizados que se adaptan a tus necesidades y crecen contigo.</p>
+      <p class="subtitle">Desarrollamos software a medida que impulsa tu negocio, con diseño, eficiencia y soporte a tu medida.</p>
       <ul class="highlights">
-        <li><span>🚀</span> Desarrollo a medida</li>
-        <li><span>🤝</span> Soporte personalizado</li>
-        <li><span>📈</span> Resultados reales</li>
+        <li>
+          <img src="assets/img/codigo.png" alt="Desarrollo" />
+          Desarrollo personalizado desde cero
+        </li>
+        <li>
+          <img src="assets/img/computadora.png" alt="Soporte" />
+          Acompañamiento directo y humano
+        </li>
+        <li>
+          <img src="assets/img/grafico-de-barras.png" alt="Resultados" />
+          Resultados concretos y medibles
+        </li>
       </ul>
-      <button class="contact" [routerLink]="['/']" fragment="contacto">¡Hablemos de tu proyecto!</button>
+      <button class="contact" (click)="irA('contacto')">
+        <img src="assets/img/idea.png" alt="Idea" />
+        ¡Cuéntanos tu idea!
+      </button>
+
     </div>
   </div>
 </section>
@@ -257,17 +270,17 @@
   <div class="container">
     <h2>¿Listo para transformar tu idea en software?</h2>
     <p>Contáctanos y empieza a construir tu solución digital personalizada con Digital-Veltrix.</p>
-    <button [routerLink]="['/']" fragment="contacto" >Contáctanos</button>
+    <button (click)="irA('contacto')"  >Contáctanos</button>
   </div>
 </section>
 
 
-<button class="scroll-to-top" (click)="scrollToTop()">
-  <svg class="svgIcon" viewBox="0 0 384 512">
-    <path
-      d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
-    ></path>
-  </svg>
-</button>
+<!--<button class="scroll-to-top" [routerLink]="['/']" (click)="scrollToTop()">-->
+<!--  <svg class="svgIcon" viewBox="0 0 384 512">-->
+<!--    <path-->
+<!--      d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"-->
+<!--    ></path>-->
+<!--  </svg>-->
+<!--</button>-->
 
 
