@@ -4,8 +4,12 @@ $blue-light: #00C4CC;
 $green-light: #00E6B8;
 $green-dark: #007F66;
 $white: #FFFFFF;
+$green-mint:#10b981;
 
-// Base Styles
+
+p{
+  font-size: 1.2rem;
+  }
 
    html, body {
      margin: 0;
@@ -37,7 +41,7 @@ a {
 }
 
 button {
-  background-color: $green-light;
+  background-color: $green-mint;
   color: $blue-dark;
   border: none;
   padding: 0.6em 1.2em;
