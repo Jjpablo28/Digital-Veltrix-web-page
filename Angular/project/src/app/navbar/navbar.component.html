@@ -1,23 +1,43 @@
 <nav>
-<div class="topappbar">
-  <div class="nav-header">
+  <div class="topappbar">
 
-    <div class="leading-icon">
-      <img [routerLink]="['/']" src="./assets/img/Logo.png" alt="Logo"  />
+    <!-- Logo + Título -->
+    <div class="nav-header">
+      <div class="leading-icon">
+        <img [routerLink]="['/']" src="./assets/img/Logo.png" alt="Logo" />
+      </div>
+      <div [routerLink]="['/']" class="headline">{{ 'NAV.BRAND' | translate }}</div>
     </div>
-    <div [routerLink]="['/']" class="headline">Digital Veltrix</div>
+
+    <!-- Contenedor combinado para idioma + botones -->
+    <div class="nav-controls">
+      <!-- Selector de idioma -->
+      <div class="language-wrapper">
+        <div class="language-selector" (click)="toggleDropdown($event)">
+          <button class="lang-btn">
+            <img [src]="selectedLanguage.flag" width="20" alt="{{ selectedLanguage.label }}" />
+            <span>{{ selectedLanguage.label }}</span>
+          </button>
+          <div *ngIf="showDropdown" class="dropdown">
+            <div
+              *ngFor="let lang of languages"
+              (click)="changeLanguage(lang, $event)"
+              class="dropdown-item"
+            >
+              <img [src]="lang.flag" width="20" alt="{{ lang.label }}" />
+              {{ lang.label }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botones de navegación -->
+      <div class="nav-actions">
+        <button class="btn" (click)="scrollToId('nosotros')">{{ 'NAV.WHO_WE_ARE' | translate }}</button>
+        <button class="btn" (click)="scrollToId('servicios')">{{ 'NAV.WHAT_WE_OFFER' | translate }}</button>
+        <button class="btn" (click)="scrollToId('contacto')">{{ 'NAV.CONTACT_US' | translate }}</button>
+      </div>
+    </div>
+
   </div>
-  <div style="display: flex; align-items: center; gap: 10px;">
-
-
-    <button class="btn" (click)="scrollToId('nosotros')">Quiénes Somos</button>
-    <button class="btn" (click)="scrollToId('servicios')">Qué Ofrecemos</button>
-    <button class="btn" (click)="scrollToId('contacto')">Contáctanos</button>
-
-  </div>
-</div>
-
-
-
 </nav>
-

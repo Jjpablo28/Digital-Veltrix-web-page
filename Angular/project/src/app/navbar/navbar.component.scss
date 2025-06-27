@@ -4,90 +4,132 @@ $green-light: #00E6B8;
 $green-dark: #007F66;
 $white: #FFFFFF;
 
-// Navbar Styles
+.topappbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $white;
+  padding: 10px 15px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+
+  @media (min-width: 769px) {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 60px;
+  }
+}
 
 .nav-header {
   display: flex;
   align-items: center;
   gap: 10px;
-
-  @media (max-width: 768px) {
-    justify-content: center;
-    width: 100%;
-    margin-top: 10px;
-  }
-}
-
-.topappbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: $white;
-  padding: 10px 15px;
-  gap: 10px;
-  height: 50px;
-  position: relative;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-  }
 }
 
 .leading-icon {
-  background-color: transparent;
-  width: 80px;
-  height: 100%;
+  width: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 0;
   cursor: pointer;
-  @media (max-width: 768px) {
-    width: 70px;
-    margin-left: -50px;
-  }
+
   img {
-    max-height: 100%;
     max-width: 100%;
-    object-fit: contain;
+    height: auto;
+
   }
 }
 
 .headline {
-  color: $blue-dark;
   font-size: 1.75rem;
   font-weight: bold;
+  color: $blue-dark;
   white-space: nowrap;
-  position: static;
-  transform: none;
   cursor: pointer;
+
 }
 
+.nav-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
 
-.button {
-  color: $white;
-
-  &:hover {
-    color: $white;
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-
-  &::before {
-    background-color: $blue-light;
-  }
-
-  &:hover::before {
-    background-color: $blue-dark;
+  @media (min-width: 769px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 0;
+    gap: 20px;
   }
 }
 
+.language-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.language-selector {
+  position: relative;
+
+  .lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px 12px;
+    font-weight: bold;
+    color: $blue-dark;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+      border-radius: 4px;
+    }
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: $white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 100;
+    margin-top: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 140px;
+  }
+
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f2f2f2;
+    }
+  }
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media (min-width: 769px) {
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+}
 
 .btn {
   font-size: 15.8px;
-  font-weight: 30;
   background: transparent;
   border: none;
   padding: 0.9em 0.3em;
@@ -96,42 +138,42 @@ $white: #FFFFFF;
   position: relative;
   transition: 0.5s ease;
   cursor: pointer;
-}
 
-.btn::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 2px;
-  width: 0;
-  background-color: $green-light;
-  transition: 0.5s ease;
-}
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: $green-light;
+    transition: 0.5s ease;
+  }
 
-.btn:hover {
-  color: #1e1e2b;
-  transition-delay: 0.5s;
-}
+  &:hover {
+    color: #1e1e2b;
+    transition-delay: 0.5s;
+  }
 
-.btn:hover::before {
-  width: 100%;
-}
+  &:hover::before {
+    width: 100%;
+  }
 
-.btn::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 0;
-  width: 100%;
-  background-color: $green-light;
-  transition: 0.4s ease;
-  z-index: -1;
-}
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    background-color: $green-light;
+    transition: 0.4s ease;
+    z-index: -1;
+  }
 
-.btn:hover::after {
-  height: 100%;
-  transition-delay: 0.4s;
-  color: aliceblue;
+  &:hover::after {
+    height: 100%;
+    transition-delay: 0.4s;
+    color: aliceblue;
+  }
 }

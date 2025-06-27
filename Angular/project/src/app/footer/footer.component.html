@@ -1,56 +1,67 @@
 <footer class="footer-container">
   <div class="footer-columns">
     <div class="footer-column">
-      <h4>Digital Veltrix</h4>
+      <h4>{{ 'FOOTER.COMPANY_TITLE' | translate }}</h4>
       <ul>
-        <li><a (click)="scrollToId('nosotros')">¿Quiénes somos?</a></li>
-        <li><a (click)="scrollToId('contacto')">Contacto</a></li>
-
+        <li><a (click)="scrollToId('nosotros')">{{ 'FOOTER.COMPANY_LINK_ABOUT_US' | translate }}</a></li>
+        <li><a (click)="scrollToId('contacto')">{{ 'FOOTER.COMPANY_LINK_CONTACT' | translate }}</a></li>
       </ul>
     </div>
 
     <div class="footer-column">
-      <h4>Servicios</h4>
+      <h4>{{ 'FOOTER.SERVICES_TITLE' | translate }}</h4>
       <ul>
-        <li><a href="#">Desarrollo web</a></li>
-        <li><a href="#">Aplicaciones personalizadas</a></li>
-        <li><a href="#">Diseño UI/UX</a></li>
-        <li><a href="#">Consultoría</a></li>
+        <li><a href="#">{{ 'FOOTER.SERVICES_LINK_WEB_DEV' | translate }}</a></li>
+        <li><a href="#">{{ 'FOOTER.SERVICES_LINK_CUSTOM_APPS' | translate }}</a></li>
+        <li><a href="#">{{ 'FOOTER.SERVICES_LINK_UI_UX_DESIGN' | translate }}</a></li>
+        <li><a href="#">{{ 'FOOTER.SERVICES_LINK_CONSULTING' | translate }}</a></li>
       </ul>
     </div>
 
     <div class="footer-column">
-      <h4>Soporte</h4>
+      <h4>{{ 'FOOTER.SUPPORT_TITLE' | translate }}</h4>
       <ul>
-        <li><a (click)="scrollToId('contacto')">Contáctanos</a></li>
+        <li><a (click)="scrollToId('contacto')">{{ 'FOOTER.SUPPORT_LINK_CONTACT' | translate }}</a></li>
       </ul>
     </div>
 
     <div class="footer-column">
-      <h4>Síguenos</h4>
+      <h4>{{ 'FOOTER.FOLLOW_US_TITLE' | translate }}</h4>
       <div class="social-icons">
-        <a href="#"><img src="assets/img/logos/whatsapp.svg" alt="WhatsApp" /></a>
-        <a href="#"><img src="assets/img/logos/instagram.svg" alt="Instagram" /></a>
-        <a href="#"><img src="assets/img/logos/linkedin.svg" alt="LinkedIn" /></a>
-        <a href="mailto:veltrixdigital.co@gmail.com"><img src="assets/img/logos/gmail.svg" alt="Gmail" /></a>
+        <a href="#"><img src="assets/img/logos/whatsapp.svg" alt="WhatsApp"/></a>
+        <a href="https://www.instagram.com/digitalveltrix_oficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+        <a href="#"><img src="assets/img/logos/linkedin.svg" alt="LinkedIn"/></a>
       </div>
     </div>
 
     <div class="footer-column">
-      <h4>Idioma</h4>
-      <select>
-        <option value="es">Español</option>
-        <option value="en">English</option>
-      </select>
+      <h4>{{ 'FOOTER.LANGUAGE'|translate }}</h4>
+
+      <div class="language-wrapper">
+        <div class="language-selector" (click)="toggleDropdown($event)">
+          <button class="lang-btn">
+            <img [src]="selectedLanguage.bandera" width="20" alt="{{ selectedLanguage.label }}"/>
+            <span>{{ selectedLanguage.label }}</span>
+          </button>
+          <div *ngIf="showDropdown" class="dropdown">
+            <div
+              *ngFor="let lang of languages"
+              (click)="changeLanguage(lang, $event)"
+              class="dropdown-item"
+            >
+              <img [src]="lang.bandera" width="20" alt="{{ lang.label }}"/> {{ lang.label }}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
   <div class="footer-bottom">
-    <p>&copy; 2025 Digital Veltrix. Todos los derechos reservados.</p>
+    <p>{{ 'FOOTER.COPYRIGHT' | translate }}</p>
     <div class="footer-links">
-      <a [routerLink]="['/tyc']">Términos y condiciones</a>
-      <a [routerLink]="['/politica-privacidad']">Política de privacidad</a>
-      <a [routerLink]="['/cookies']">Cookies</a>
+      <a [routerLink]="['/tyc']">{{ 'FOOTER.TERMS_CONDITIONS' | translate }}</a>
+      <a [routerLink]="['/politica-privacidad']">{{ 'FOOTER.PRIVACY_POLICY' | translate }}</a>
+      <a [routerLink]="['/cookies']">{{ 'FOOTER.COOKIES' | translate }}</a>
     </div>
   </div>
 </footer>

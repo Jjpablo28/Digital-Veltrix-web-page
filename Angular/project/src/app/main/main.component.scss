@@ -352,6 +352,7 @@ textarea.form-control {
         padding: 1rem;
         cursor: pointer;
         color: #003366;
+
         font-weight: 600;
         font-size: 1.05rem;
 
@@ -369,6 +370,7 @@ textarea.form-control {
         overflow: hidden;
         transition: max-height 0.3s ease, padding 0.3s ease;
         padding: 0 1rem;
+        background-color: #0A2E36;
 
         &.show {
           max-height: 200px;
@@ -377,7 +379,7 @@ textarea.form-control {
 
         p {
           margin: 0;
-          color: #444;
+          color: #ffffff;
         }
       }
     }

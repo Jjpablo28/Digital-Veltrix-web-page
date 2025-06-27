@@ -1,0 +1,184 @@
+{
+  "NAV": {
+    "WHO_WE_ARE": "Who We Are",
+    "WHAT_WE_OFFER": "What We Offer",
+    "CONTACT_US": "Contact Us",
+    "BRAND": "Digital Veltrix"
+  }
+,
+
+  "COOKIES": {
+    "TITLE": "Cookies Policy",
+    "SECTION1_TITLE": "1. Use of Cookies",
+    "SECTION1_TEXT": "Currently, Digital Veltrix does not use cookies on its website.",
+    "SECTION2_TITLE": "2. Future Use",
+    "SECTION2_TEXT": "If cookies are implemented in the future, users will be notified and their consent will be requested.",
+    "SECTION3_TITLE": "3. User Control",
+    "SECTION3_TEXT": "Users will be able to manage cookies from their browser settings."
+  },
+  "PRIVACY": {
+    "TITLE": "Privacy Policy",
+    "SECTION1_TITLE": "1. Information We Collect",
+    "SECTION1_TEXT": "We collect personal data such as name, email, and message when you contact us through the form.",
+    "SECTION2_TITLE": "2. Use of Information",
+    "SECTION2_TEXT": "We use your data solely to respond to your requests and improve our services.",
+    "SECTION3_TITLE": "3. Storage",
+    "SECTION3_TEXT": "Data is stored on secure servers on AWS. We are evaluating a migration to Firebase to improve efficiency.",
+    "SECTION4_TITLE": "4. Email Communication",
+    "SECTION4_TEXT": "We use Gmail services through Spring Boot to respond to your messages.",
+    "SECTION5_TITLE": "5. User Rights",
+    "SECTION5_TEXT": "You may request access, correction, or deletion of your personal data at any time.",
+    "SECTION6_TITLE": "6. Security",
+    "SECTION6_TEXT": "We implement technical and organizational measures to protect your data against unauthorized access."
+  },
+  "TERMS": {
+    "TITLE": "Terms and Conditions",
+    "SECTION1_TITLE": "1. Introduction",
+    "SECTION1_TEXT": "Welcome to Digital Veltrix. By accessing our website, you agree to comply with these terms and conditions.",
+    "SECTION2_TITLE": "2. Site Use",
+    "SECTION2_TEXT": "The content on this site is for informational purposes only. It is not allowed to copy, distribute, or modify the content without authorization.",
+    "SECTION3_TITLE": "3. Intellectual Property",
+    "SECTION3_TEXT": "All content, including logos, texts, and images, is the property of Digital Veltrix or their respective owners.",
+    "SECTION4_TITLE": "4. Liability",
+    "SECTION4_TEXT": "We are not responsible for any damages arising from the use of the site or the information contained therein.",
+    "SECTION5_TITLE": "5. Changes",
+    "SECTION5_TEXT": "We reserve the right to modify these terms at any time. Changes will take effect once published.",
+    "SECTION6_TITLE": "6. Jurisdiction",
+    "SECTION6_TEXT": "These terms are governed by the laws of Colombia. Any dispute will be resolved in the competent courts of the country."
+  },"HERO": {
+  "TITLE": "Turn your idea into a digital solution",
+  "SUBTITLE": "We create custom software that empowers your business, combining design, functionality, and personalized support.",
+  "HIGHLIGHT_1": "100% Custom Development",
+  "HIGHLIGHT_2": "Human and Close Support",
+  "HIGHLIGHT_3": "Tangible and Measurable Results",
+  "BUTTON_TEXT": "Tell us your idea!"
+},
+  "FEATURES": {
+    "TITLE": "Why choose us?",
+    "FEATURE_1_TITLE": "Easy to Use",
+    "FEATURE_1_DESC": "We design intuitive interfaces that adapt naturally to the user.",
+    "FEATURE_2_TITLE": "Modern Designs",
+    "FEATURE_2_DESC": "Current, professional aesthetics adaptable to your identity.",
+    "FEATURE_3_TITLE": "Mobile Optimized",
+    "FEATURE_3_DESC": "Your system will look perfect on any screen."
+  },
+  "ABOUT_US": {
+    "TITLE": "Who are we?",
+    "PARAGRAPH_1": "At <strong>Digital-Veltrix</strong>, we are more than a team: we are two creative minds with a shared vision. As Systems Engineering students, we are passionate about technology, innovation, and developing digital solutions that generate real impact.",
+    "PARAGRAPH_2": "Our story began with a curiosity to understand the digital world. Today, that curiosity has turned into real projects where design, logic, and a user-centered approach converge. Every line of code we write seeks to solve concrete problems and add value.",
+    "PARAGRAPH_3": "We believe that technology should be functional and accessible. That's why we work with commitment, creativity, and a mindset of continuous improvement, exceeding expectations and building inspiring solutions.",
+    "SPECIALIZATION": "We specialize in the design, development, and implementation of custom software. Our goal is to help companies and entrepreneurs optimize their processes, strengthen their digital presence, and successfully face current technological challenges.",
+    "TEAM_TITLE": "Who makes up Digital-Veltrix?",
+    "MEMBER_JDG_NAME": "Juan David González Hernández",
+    "MEMBER_JDG_DESC": "Back-end developer passionate about technology and efficiency. I handle tools like Java, Python, and TypeScript. I am characterized by my technical focus, constant learning, and collaborative spirit.",
+    "MEMBER_JPCR_NAME": "Juan Pablo Cuervo Rodríguez",
+    "MEMBER_JPCR_DESC": "Full Stack developer with a focus on Front-end and Back-end. I am excited to create functional, scalable, and visually appealing solutions. Experienced in JSF, HTML, XHTML, Angular, Java, and TypeScript."
+  },
+  "SERVICES": {
+    "TITLE": "What we do?",
+    "CARD_1_TITLE": "Web and Mobile Applications",
+    "CARD_1_DESC": "Modern solutions adapted to any device and need.",
+    "CARD_2_TITLE": "System Integration",
+    "CARD_2_DESC": "We unite your digital tools for seamless operation.",
+    "CARD_3_TITLE": "Automation",
+    "CARD_3_DESC": "We digitize repetitive tasks to save you time and resources.",
+    "CARD_4_TITLE": "UI/UX Design",
+    "CARD_4_DESC": "Visual, functional, and user-centered interface from the start.",
+    "CARD_5_TITLE": "Technical Support",
+    "CARD_5_DESC": "Maintenance, updates, and assistance when you need it."
+  },
+  "TECHNOLOGIES": {
+    "TITLE": "Technologies we use",
+    "FRONTEND_TITLE": "Front-end",
+    "BACKEND_TITLE": "Back-end",
+    "TOOLS_TITLE": "Tools"
+  },
+  "FAQ": {
+    "TITLE": "Frequently Asked Questions"
+  },
+  "CONTACT_FORM": {
+    "TITLE": "Contact Us",
+    "NAME_PLACEHOLDER": "Your Name",
+    "EMAIL_PLACEHOLDER": "Your Email",
+    "SUBJECT_PLACEHOLDER": "Subject",
+    "MESSAGE_PLACEHOLDER": "Write your message here...",
+    "BUTTON_TEXT": "Send"
+  },
+  "CTA_FINAL": {
+    "TITLE": "Ready to transform your idea into software?",
+    "SUBTITLE": "Let's talk and design a custom digital solution for you with Digital-Veltrix.",
+    "BUTTON_TEXT": "Contact Us"
+  },
+  "FOOTER": {
+    "LANGUAGE": "Language",
+    "COMPANY_TITLE": "Digital Veltrix",
+    "COMPANY_LINK_ABOUT_US": "Who We Are?",
+    "COMPANY_LINK_CONTACT": "Contact",
+    "SERVICES_TITLE": "Services",
+    "SERVICES_LINK_WEB_DEV": "Web Development",
+    "SERVICES_LINK_CUSTOM_APPS": "Custom Applications",
+    "SERVICES_LINK_UI_UX_DESIGN": "UI/UX Design",
+    "SERVICES_LINK_CONSULTING": "Consulting",
+    "SUPPORT_TITLE": "Support",
+    "SUPPORT_LINK_CONTACT": "Contact Us",
+    "FOLLOW_US_TITLE": "Follow Us",
+    "LANGUAGE_TITLE": "Language",
+    "LANGUAGE_OPTION_ES": "Spanish",
+    "LANGUAGE_OPTION_EN": "English",
+    "COPYRIGHT": "© 2025 Digital Veltrix. All rights reserved.",
+    "TERMS_CONDITIONS": "Terms & Conditions",
+    "PRIVACY_POLICY": "Privacy Policy",
+    "COOKIES": "Cookies"
+  },
+
+  "FAQ": {
+    "TITLE": "Frequently Asked Questions",
+    "QUESTIONS": [
+      {
+        "QUESTION": "Is it complicated to request a custom system?",
+        "ANSWER": "No, we guide you step by step to define what you need."
+      },
+      {
+        "QUESTION": "How long does it take to develop a custom solution?",
+        "ANSWER": "It depends on the project, but we always give you a clear estimate from the start."
+      },
+      {
+        "QUESTION": "Can I request a system even if I have no technical knowledge?",
+        "ANSWER": "Of course! We translate your ideas into functional solutions."
+      },
+      {
+        "QUESTION": "Do you offer advice to define project requirements?",
+        "ANSWER": "Yes, we help you structure your needs into a technical plan."
+      },
+      {
+        "QUESTION": "What kind of companies or people can hire your services?",
+        "ANSWER": "We work with entrepreneurs, small businesses, and anyone with a digital idea."
+      },
+      {
+        "QUESTION": "Do the systems you develop work on mobile devices?",
+        "ANSWER": "Yes, all our developments are responsive and adaptable."
+      },
+      {
+        "QUESTION": "Can I request only the design or also the full development?",
+        "ANSWER": "We offer both services, together or separately."
+      },
+      {
+        "QUESTION": "Do you offer maintenance or support after delivering the project?",
+        "ANSWER": "Yes, we provide technical support and updates if needed."
+      },
+      {
+        "QUESTION": "Can I see examples of previous projects?",
+        "ANSWER": "Sure, we have a selection of featured projects we've completed."
+      },
+      {
+        "QUESTION": "How can I contact you?",
+        "ANSWER": "Through the contact form or by email."
+      }
+    ]
+  }
+
+}
+
+
+
+

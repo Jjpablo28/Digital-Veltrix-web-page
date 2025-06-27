@@ -1,0 +1,183 @@
+{
+  "NAV": {
+    "WHO_WE_ARE": "Quiénes Somos",
+    "WHAT_WE_OFFER": "Qué Ofrecemos",
+    "CONTACT_US": "Contáctanos",
+    "BRAND": "Digital Veltrix"
+  },
+
+  "COOKIES": {
+    "TITLE": "Política de Cookies",
+    "SECTION1_TITLE": "1. Uso de cookies",
+    "SECTION1_TEXT": "Actualmente, Digital Veltrix no utiliza cookies en su sitio web.",
+    "SECTION2_TITLE": "2. Futuro uso",
+    "SECTION2_TEXT": "En caso de implementar cookies en el futuro, se notificará al usuario y se solicitará su consentimiento.",
+    "SECTION3_TITLE": "3. Control del usuario",
+    "SECTION3_TEXT": "El usuario podrá gestionar las cookies desde la configuración de su navegador."
+  },
+  "PRIVACY": {
+    "TITLE": "Política de Privacidad",
+    "SECTION1_TITLE": "1. Información que recopilamos",
+    "SECTION1_TEXT": "Recopilamos datos personales como nombre, correo electrónico y mensaje cuando nos contactas a través del formulario.",
+    "SECTION2_TITLE": "2. Uso de la información",
+    "SECTION2_TEXT": "Utilizamos tus datos únicamente para responder a tus solicitudes y mejorar nuestros servicios.",
+    "SECTION3_TITLE": "3. Almacenamiento",
+    "SECTION3_TEXT": "Los datos se almacenan en servidores seguros en AWS. Evaluamos migrar a Firebase para mejorar la eficiencia.",
+    "SECTION4_TITLE": "4. Envío de correos",
+    "SECTION4_TEXT": "Utilizamos servicios de correo de Gmail a través de Spring Boot para responder a tus mensajes.",
+    "SECTION5_TITLE": "5. Derechos del usuario",
+    "SECTION5_TEXT": "Puedes solicitar acceso, corrección o eliminación de tus datos personales en cualquier momento.",
+    "SECTION6_TITLE": "6. Seguridad",
+    "SECTION6_TEXT": "Implementamos medidas técnicas y organizativas para proteger tus datos contra accesos no autorizados."
+  },
+  "TERMS": {
+    "TITLE": "Términos y Condiciones",
+    "SECTION1_TITLE": "1. Introducción",
+    "SECTION1_TEXT": "Bienvenido a Digital Veltrix. Al acceder a nuestro sitio web, aceptas cumplir con estos términos y condiciones.",
+    "SECTION2_TITLE": "2. Uso del sitio",
+    "SECTION2_TEXT": "El contenido de este sitio es solo para fines informativos. No está permitido copiar, distribuir o modificar el contenido sin autorización.",
+    "SECTION3_TITLE": "3. Propiedad intelectual",
+    "SECTION3_TEXT": "Todo el contenido, incluyendo logotipos, textos e imágenes, es propiedad de Digital Veltrix o de sus respectivos titulares.",
+    "SECTION4_TITLE": "4. Responsabilidad",
+    "SECTION4_TEXT": "No nos hacemos responsables por daños derivados del uso del sitio o de la información contenida en él.",
+    "SECTION5_TITLE": "5. Cambios",
+    "SECTION5_TEXT": "Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones entrarán en vigor una vez publicadas.",
+    "SECTION6_TITLE": "6. Jurisdicción",
+    "SECTION6_TEXT": "Estos términos se rigen por las leyes de Colombia. Cualquier disputa será resuelta en los tribunales competentes del país."
+  },
+  "HERO": {
+    "TITLE": "Convierte tu idea en una solución digital",
+    "SUBTITLE": "Creamos software a medida que potencia tu negocio, combinando diseño, funcionalidad y soporte personalizado.",
+    "HIGHLIGHT_1": "Desarrollo 100% personalizado",
+    "HIGHLIGHT_2": "Acompañamiento humano y cercano",
+    "HIGHLIGHT_3": "Resultados tangibles y medibles",
+    "BUTTON_TEXT": "¡Cuéntanos tu idea!"
+  },
+  "FEATURES": {
+    "TITLE": "¿Por qué elegirnos?",
+    "FEATURE_1_TITLE": "Fácil de usar",
+    "FEATURE_1_DESC": "Diseñamos interfaces intuitivas que se adaptan naturalmente al usuario.",
+    "FEATURE_2_TITLE": "Diseños modernos",
+    "FEATURE_2_DESC": "Estética actual, profesional y adaptable a tu identidad.",
+    "FEATURE_3_TITLE": "Optimizado para móviles",
+    "FEATURE_3_DESC": "Tu sistema lucirá perfecto en cualquier pantalla."
+  },
+  "ABOUT_US": {
+    "TITLE": "¿Quiénes somos?",
+    "PARAGRAPH_1": "En <strong>Digital-Veltrix</strong>, somos más que un equipo: somos dos mentes creativas con una visión compartida. Como estudiantes de Ingeniería de Sistemas, nos apasiona la tecnología, la innovación y el desarrollo de soluciones digitales que generan impacto real.",
+    "PARAGRAPH_2": "Nuestra historia comenzó con la curiosidad por entender el mundo digital. Hoy, esa curiosidad se ha convertido en proyectos reales donde confluyen diseño, lógica y un enfoque centrado en el usuario. Cada línea de código que escribimos busca resolver problemas concretos y aportar valor.",
+    "PARAGRAPH_3": "Creemos que la tecnología debe ser funcional y cercana. Por eso trabajamos con compromiso, creatividad y una mentalidad de mejora continua, superando expectativas y construyendo soluciones que inspiran.",
+    "SPECIALIZATION": "Nos especializamos en el diseño, desarrollo e implementación de software a medida. Nuestro objetivo es ayudar a empresas y emprendedores a optimizar sus procesos, fortalecer su presencia digital y enfrentar con éxito los desafíos tecnológicos actuales.",
+    "TEAM_TITLE": "¿Quiénes conformamos Digital-Veltrix?",
+    "MEMBER_JDG_NAME": "Juan David González Hernández",
+    "MEMBER_JDG_DESC": "Desarrollador Back-end apasionado por la tecnología y la eficiencia. Manejo herramientas como Java, Python y TypeScript. Me caracterizo por mi enfoque técnico, aprendizaje constante y espíritu colaborativo.",
+    "MEMBER_JPCR_NAME": "Juan Pablo Cuervo Rodríguez",
+    "MEMBER_JPCR_DESC": "Desarrollador Full Stack con enfoque en Front-end y Back-end. Me entusiasma crear soluciones funcionales, escalables y visualmente atractivas. Experiencia en JSF, HTML, XHTML, Angular, Java y TypeScript."
+  },
+  "SERVICES": {
+    "TITLE": "¿Qué hacemos?",
+    "CARD_1_TITLE": "Aplicaciones Web y Móviles",
+    "CARD_1_DESC": "Soluciones modernas adaptadas a cualquier dispositivo y necesidad.",
+    "CARD_2_TITLE": "Integración de Sistemas",
+    "CARD_2_DESC": "Unimos tus herramientas digitales para lograr una operación fluida.",
+    "CARD_3_TITLE": "Automatización",
+    "CARD_3_DESC": "Digitalizamos tareas repetitivas para que ahorres tiempo y recursos.",
+    "CARD_4_TITLE": "Diseño UI/UX",
+    "CARD_4_DESC": "Interfaz visual, funcional y centrada en el usuario desde el inicio.",
+    "CARD_5_TITLE": "Soporte Técnico",
+    "CARD_5_DESC": "Mantenimiento, actualizaciones y asistencia cuando lo necesites."
+  },
+  "TECHNOLOGIES": {
+    "TITLE": "Tecnologías que usamos",
+    "FRONTEND_TITLE": "Front-end",
+    "BACKEND_TITLE": "Back-end",
+    "TOOLS_TITLE": "Herramientas"
+  },
+  "FAQ": {
+    "TITLE": "Preguntas Frecuentes"
+  },
+  "CONTACT_FORM": {
+    "TITLE": "Contáctanos",
+    "NAME_PLACEHOLDER": "Tu nombre",
+    "EMAIL_PLACEHOLDER": "Tu correo electrónico",
+    "SUBJECT_PLACEHOLDER": "Asunto",
+    "MESSAGE_PLACEHOLDER": "Escribe tu mensaje aquí...",
+    "BUTTON_TEXT": "Enviar"
+  },
+  "CTA_FINAL": {
+    "TITLE": "¿Listo para transformar tu idea en software?",
+    "SUBTITLE": "Hablemos y diseñemos juntos una solución digital hecha a tu medida con Digital-Veltrix.",
+    "BUTTON_TEXT": "Contáctanos"
+  },
+  "FOOTER": {
+    "LANGUAGE": "Idioma",
+    "COMPANY_TITLE": "Digital Veltrix",
+    "COMPANY_LINK_ABOUT_US": "¿Quiénes somos?",
+    "COMPANY_LINK_CONTACT": "Contacto",
+    "SERVICES_TITLE": "Servicios",
+    "SERVICES_LINK_WEB_DEV": "Desarrollo web",
+    "SERVICES_LINK_CUSTOM_APPS": "Aplicaciones personalizadas",
+    "SERVICES_LINK_UI_UX_DESIGN": "Diseño UI/UX",
+    "SERVICES_LINK_CONSULTING": "Consultoría",
+    "SUPPORT_TITLE": "Soporte",
+    "SUPPORT_LINK_CONTACT": "Contáctanos",
+    "FOLLOW_US_TITLE": "Síguenos",
+    "LANGUAGE_TITLE": "Idioma",
+    "LANGUAGE_OPTION_ES": "Español",
+    "LANGUAGE_OPTION_EN": "English",
+    "COPYRIGHT": "© 2025 Digital Veltrix. Todos los derechos reservados.",
+    "TERMS_CONDITIONS": "Términos y condiciones",
+    "PRIVACY_POLICY": "Política de privacidad",
+    "COOKIES": "Cookies"
+  },
+  "FAQ": {
+    "TITLE": "Preguntas Frecuentes",
+    "QUESTIONS": [
+      {
+        "QUESTION": "¿Es complicado solicitar un sistema personalizado?",
+        "ANSWER": "No, te guiamos paso a paso para definir lo que necesitas."
+      },
+      {
+        "QUESTION": "¿Cuánto tiempo toma desarrollar una solución a medida?",
+        "ANSWER": "Depende del proyecto, pero siempre te damos una estimación clara desde el inicio."
+      },
+      {
+        "QUESTION": "¿Puedo solicitar un sistema aunque no tenga conocimientos técnicos?",
+        "ANSWER": "¡Claro! Nos encargamos de traducir tus ideas en soluciones funcionales."
+      },
+      {
+        "QUESTION": "¿Ofrecen asesoría para definir los requerimientos del proyecto?",
+        "ANSWER": "Sí, te ayudamos a estructurar tus necesidades en un plan técnico."
+      },
+      {
+        "QUESTION": "¿Qué tipo de empresas o personas pueden contratar sus servicios?",
+        "ANSWER": "Trabajamos con emprendedores, pymes y cualquier persona con una idea digital."
+      },
+      {
+        "QUESTION": "¿Los sistemas que desarrollan funcionan en dispositivos móviles?",
+        "ANSWER": "Sí, todos nuestros desarrollos son responsivos y adaptables."
+      },
+      {
+        "QUESTION": "¿Puedo solicitar solo el diseño o también el desarrollo completo?",
+        "ANSWER": "Ofrecemos los dos servicios, juntos o por separado."
+      },
+      {
+        "QUESTION": "¿Ofrecen mantenimiento o soporte después de entregar el proyecto?",
+        "ANSWER": "Sí, brindamos soporte técnico y actualizaciones si lo necesitas."
+      },
+      {
+        "QUESTION": "¿Puedo ver ejemplos de proyectos anteriores?",
+        "ANSWER": "Claro, tenemos una selección de proyectos destacados realizados por nosotros."
+      },
+      {
+        "QUESTION": "¿Cómo puedo ponerme en contacto con ustedes?",
+        "ANSWER": "Desde el formulario de contacto o por correo electrónico."
+      }
+    ]
+  }
+
+}
+
+
+
+

@@ -2,194 +2,185 @@
   <div class="background-shape"></div>
   <div class="container">
     <div class="hero-content">
-      <h1>Transforma tu idea en una solución digital</h1>
-      <p class="subtitle">Desarrollamos software a medida que impulsa tu negocio, con diseño, eficiencia y soporte a tu medida.</p>
+      <h1 class="animate__animated animate__fadeInUp animate__fast">{{ 'HERO.TITLE' | translate }}</h1>
+      <p class="subtitle animate__animated animate__fadeInUp animate__delay-0-5s animate__fast">
+        {{ 'HERO.SUBTITLE' | translate }}
+      </p>
       <ul class="highlights">
-        <li>
+        <li class="animate__animated animate__fadeInLeft animate__delay-1s animate__fast">
           <img src="assets/img/codigo.png" alt="Desarrollo" />
-          Desarrollo personalizado desde cero
+          {{ 'HERO.HIGHLIGHT_1' | translate }}
         </li>
-        <li>
+        <li class="animate__animated animate__fadeInLeft animate__delay-1-5s animate__fast">
           <img src="assets/img/computadora.png" alt="Soporte" />
-          Acompañamiento directo y humano
+          {{ 'HERO.HIGHLIGHT_2' | translate }}
         </li>
-        <li>
+        <li class="animate__animated animate__fadeInLeft animate__delay-2s animate__fast">
           <img src="assets/img/grafico-de-barras.png" alt="Resultados" />
-          Resultados concretos y medibles
+          {{ 'HERO.HIGHLIGHT_3' | translate }}
         </li>
       </ul>
-      <button class="contact" (click)="irA('contacto')">
+      <button class="contact animate__animated animate__zoomIn animate__delay-2-5s animate__fast" (click)="irA('contacto')">
         <img src="assets/img/idea.png" alt="Idea" />
-        ¡Cuéntanos tu idea!
+        {{ 'HERO.BUTTON_TEXT' | translate }}
       </button>
-
     </div>
   </div>
 </section>
+
+---
 
 <section class="features">
   <div class="container">
-    <h2>¿Por qué elegirnos?</h2>
+    <h2 class="animate__animated" data-animation="animate__bounceIn">{{ 'FEATURES.TITLE' | translate }}</h2>
     <div class="feature-list">
-      <div class="feature">
+      <div class="feature animate__animated" data-animation="animate__fadeInUp" data-delay="0s">
         <img src="assets/img/snap.svg" alt="Fácil de usar" />
-        <h3>Fácil de usar</h3>
-        <p>Interfaces intuitivas pensadas para el usuario final.</p>
+        <h3>{{ 'FEATURES.FEATURE_1_TITLE' | translate }}</h3>
+        <p>{{ 'FEATURES.FEATURE_1_DESC' | translate }}</p>
       </div>
-      <div class="feature">
+      <div class="feature animate__animated" data-animation="animate__fadeInUp" data-delay="0.2s">
         <img src="assets/img/innovation.svg" alt="Diseños modernos" />
-        <h3>Diseños modernos</h3>
-        <p>Estética actual, adaptable y profesional.</p>
+        <h3>{{ 'FEATURES.FEATURE_2_TITLE' | translate }}</h3>
+        <p>{{ 'FEATURES.FEATURE_2_DESC' | translate }}</p>
       </div>
-      <div class="feature">
+      <div class="feature animate__animated" data-animation="animate__fadeInUp" data-delay="0.4s">
         <img src="assets/img/responsive.svg" alt="Responsive" />
-        <h3>Optimizado para móviles</h3>
-        <p>Tu sistema se verá perfecto en cualquier dispositivo.</p>
+        <h3>{{ 'FEATURES.FEATURE_3_TITLE' | translate }}</h3>
+        <p>{{ 'FEATURES.FEATURE_3_DESC' | translate }}</p>
       </div>
     </div>
   </div>
 </section>
 
-
+---
 
 <section class="about-us section-with-image" id="nosotros" #nosotros>
   <div class="container">
     <div class="content">
       <div class="text">
-        <h2>¿Quiénes somos?</h2>
-        <p>
-          En <strong>Digital-Veltrix</strong> somos más que un equipo: somos dos mentes creativas unidas por una misma visión. Como estudiantes de Ingeniería de Sistemas, compartimos una profunda pasión por la tecnología, la innovación y el desarrollo de soluciones digitales que marcan la diferencia.
-        </p>
-        <p>
-          Nuestra historia comenzó con la curiosidad por entender cómo funciona el mundo digital. Hoy, esa curiosidad se ha transformado en proyectos reales que combinan diseño, lógica, eficiencia y un enfoque centrado en el usuario. Cada línea de código que escribimos está impulsada por el deseo de resolver problemas reales y aportar valor a quienes confían en nosotros.
-        </p>
-        <p>
-          En Digital-Veltrix creemos que la tecnología no solo debe ser funcional, sino también humana. Por eso, trabajamos con compromiso, creatividad y una mentalidad de mejora continua, buscando siempre superar expectativas y construir soluciones que inspiren.
-        </p>
+        <h2 class="animate__animated" data-animation="animate__fadeInLeft">{{ 'ABOUT_US.TITLE' | translate }}</h2>
+        <p class="animate__animated" data-animation="animate__fadeIn" data-delay="0.2s" [innerHTML]="'ABOUT_US.PARAGRAPH_1' | translate"></p>
+        <p class="animate__animated" data-animation="animate__fadeIn" data-delay="0.4s" [innerHTML]="'ABOUT_US.PARAGRAPH_2' | translate"></p>
+        <p class="animate__animated" data-animation="animate__fadeIn" data-delay="0.6s" [innerHTML]="'ABOUT_US.PARAGRAPH_3' | translate"></p>
       </div>
-
       <div class="image">
-        <img src="assets/img/img.png" alt="Equipo de trabajo">
+        <img class="animate__animated" data-animation="animate__fadeInRight" src="assets/img/img.png" alt="Equipo de trabajo" />
       </div>
     </div>
 
-    <p>
-      Nos especializamos en el diseño, desarrollo e implementación de software a medida. Nuestro objetivo es ayudar a empresas y emprendedores a optimizar sus procesos, fortalecer su presencia digital y enfrentar con éxito los desafíos tecnológicos actuales.
-    </p>
+    <p class="animate__animated" data-animation="animate__fadeIn" data-delay="0.8s" [innerHTML]="'ABOUT_US.SPECIALIZATION' | translate"></p>
 
-    <h2>¿Quiénes conformamos Digital-Veltrix?</h2>
+    <h2 class="animate__animated" data-animation="animate__fadeInUp">{{ 'ABOUT_US.TEAM_TITLE' | translate }}</h2>
     <div class="contenedor">
-      <div class="presentation">
-        <h3>Juan David González Hernández</h3>
-        <img src="assets/img/JDG.png" class="perfil" alt="Juan David González Hernández">
-        <p style="text-align: justify">
-          Desarrollador Back-end, entusiasta de la tecnología y creador de soluciones eficientes. Tengo experiencia en herramientas como Java, Python y TypeScript. Me destaco por mis habilidades técnicas, mi disposición para aprender constantemente y mi actitud colaborativa.
-        </p>
+      <div class="presentation animate__animated" data-animation="animate__zoomIn" data-delay="0s">
+        <h3>{{ 'ABOUT_US.MEMBER_JDG_NAME' | translate }}</h3>
+        <img src="assets/img/JDG.png" class="perfil" alt="Juan David González Hernández" />
+        <p style="text-align: justify" [innerHTML]="'ABOUT_US.MEMBER_JDG_DESC' | translate"></p>
       </div>
-      <div class="presentation">
-        <h3>Juan Pablo Cuervo Rodríguez</h3>
-        <img src="assets/img/JPCR.png" class="perfil" alt="Juan Pablo Cuervo Rodríguez">
-        <p style="text-align: justify">
-          Desarrollador Full Stack con enfoque en Front-end y Back-end. Apasionado por la innovación y la creación de soluciones funcionales, escalables y visualmente atractivas. Tengo experiencia con tecnologías como JSF, HTML, XHTML, Angular, Java y TypeScript.
-        </p>
+      <div class="presentation animate__animated" data-animation="animate__zoomIn" data-delay="0.3s">
+        <h3>{{ 'ABOUT_US.MEMBER_JPCR_NAME' | translate }}</h3>
+        <img src="assets/img/JPCR.png" class="perfil" alt="Juan Pablo Cuervo Rodríguez" />
+        <p style="text-align: justify" [innerHTML]="'ABOUT_US.MEMBER_JPCR_DESC' | translate"></p>
       </div>
     </div>
   </div>
 </section>
 
+---
 
-<section class=" section-with-image image ">
+<section class="section-with-image image">
   <div class="container">
     <div class="content">
       <div class="image">
-        <img src="assets/img/prueba.jpg" alt="Servicios tecnológicos">
+        <img class="animate__animated" data-animation="animate__fadeIn" src="assets/img/prueba.jpg" alt="Servicios tecnológicos" />
       </div>
     </div>
   </div>
 </section>
 
+---
 
 <section class="services" id="servicios" #servicios>
   <div class="container">
-    <h2>¿Qué hacemos?</h2>
+    <h2 class="animate__animated" data-animation="animate__fadeInUp">{{ 'SERVICES.TITLE' | translate }}</h2>
     <div class="service-grid">
-      <div class="service-card">
+      <div class="service-card animate__animated" data-animation="animate__fadeInUp" data-delay="0s">
         <i class="icon">💻</i>
-        <h3>Apps Web y Móviles</h3>
-        <p>Desarrollamos soluciones digitales modernas, adaptadas a cualquier dispositivo.</p>
+        <h3>{{ 'SERVICES.CARD_1_TITLE' | translate }}</h3>
+        <p>{{ 'SERVICES.CARD_1_DESC' | translate }}</p>
       </div>
-      <div class="service-card">
+      <div class="service-card animate__animated" data-animation="animate__fadeInUp" data-delay="0.1s">
         <i class="icon">🔗</i>
-        <h3>Integración de Sistemas</h3>
-        <p>Conectamos tus herramientas para que trabajen juntas de forma eficiente.</p>
+        <h3>{{ 'SERVICES.CARD_2_TITLE' | translate }}</h3>
+        <p>{{ 'SERVICES.CARD_2_DESC' | translate }}</p>
       </div>
-      <div class="service-card">
+      <div class="service-card animate__animated" data-animation="animate__fadeInUp" data-delay="0.2s">
         <i class="icon">⚙️</i>
-        <h3>Automatización</h3>
-        <p>Optimizamos procesos repetitivos para que ahorres tiempo y recursos.</p>
+        <h3>{{ 'SERVICES.CARD_3_TITLE' | translate }}</h3>
+        <p>{{ 'SERVICES.CARD_3_DESC' | translate }}</p>
       </div>
-      <div class="service-card">
+      <div class="service-card animate__animated" data-animation="animate__fadeInUp" data-delay="0.3s">
         <i class="icon">🎨</i>
-        <h3>Diseño UI/UX</h3>
-        <p>Diseñamos interfaces intuitivas y atractivas centradas en el usuario.</p>
+        <h3>{{ 'SERVICES.CARD_4_TITLE' | translate }}</h3>
+        <p>{{ 'SERVICES.CARD_4_DESC' | translate }}</p>
       </div>
-      <div class="service-card">
+      <div class="service-card animate__animated" data-animation="animate__fadeInUp" data-delay="0.4s">
         <i class="icon">🛠️</i>
-        <h3>Soporte Técnico</h3>
-        <p>Te acompañamos después del desarrollo con mantenimiento y mejoras.</p>
+        <h3>{{ 'SERVICES.CARD_5_TITLE' | translate }}</h3>
+        <p>{{ 'SERVICES.CARD_5_DESC' | translate }}</p>
       </div>
     </div>
   </div>
 </section>
 
+---
 
 <section class="technologies">
   <div class="container">
-    <h2>Tecnologías que usamos</h2>
+    <h2 class="animate__animated" data-animation="animate__fadeIn">{{ 'TECHNOLOGIES.TITLE' | translate }}</h2>
 
     <div class="tech-category">
-      <h3 class="category-title">Front-end</h3>
+      <h3 class="category-title animate__animated" data-animation="animate__fadeInLeft">{{ 'TECHNOLOGIES.FRONTEND_TITLE' | translate }}</h3>
       <div class="service-grid">
-        <div class="service-card">
+        <div class="service-card animate__animated" data-animation="animate__fadeInUp" data-delay="0s">
           <img src="assets/img/logos/angular.svg" alt="Angular" class="icon" />
-          <h3>Angular</h3>
-        </div>
-        <div class="service-card">
+          <h3>Angular</h3> </div>
+        <div class="service-card animate__animated" data-animation="animate__fadeInUp" data-delay="0.1s">
           <img src="assets/img/logos/html5.svg" alt="HTML-5" class="icon" />
           <h3>HTML-5</h3>
         </div>
-        <div class="service-card">
+        <div class="service-card animate__animated" data-animation="animate__fadeInUp" data-delay="0.2s">
           <img src="assets/img/logos/css_old.svg" alt="CSS" class="icon" />
           <h3>CSS</h3>
         </div>
-        <div class="service-card">
+        <div class="service-card animate__animated" data-animation="animate__fadeInUp" data-delay="0.3s">
           <img src="assets/img/logos/javascript.svg" alt="JavaScript" class="icon" />
           <h3>JavaScript</h3>
         </div>
-        <div class="service-card">
+        <div class="service-card animate__animated" data-animation="animate__fadeInUp" data-delay="0.4s">
           <img src="assets/img/logos/typescript.svg" alt="TypeScript" class="icon" />
           <h3>TypeScript</h3>
         </div>
-
       </div>
     </div>
 
     <div class="tech-category">
-      <h3 class="category-title">Back-end</h3>
+      <h3 class="category-title animate__animated" data-animation="animate__fadeInLeft">{{ 'TECHNOLOGIES.BACKEND_TITLE' | translate }}</h3>
       <div class="service-grid">
-        <div class="service-card">
+        <div class="service-card animate__animated" data-animation="animate__fadeInUp" data-delay="0s">
           <img src="assets/img/logos/java.svg" alt="Java" class="icon" />
           <h3>Java</h3>
         </div>
-        <div class="service-card">
+        <div class="service-card animate__animated" data-animation="animate__fadeInUp" data-delay="0.1s">
           <img src="assets/img/logos/spring.svg" alt="Spring" class="icon" />
           <h3>SpringBoot</h3>
         </div>
-        <div class="service-card">
+        <div class="service-card animate__animated" data-animation="animate__fadeInUp" data-delay="0.2s">
           <img src="assets/img/logos/nodejs.svg" alt="Node.js" class="icon" />
           <h3>Node.js</h3>
         </div>
-        <div class="service-card">
+        <div class="service-card animate__animated" data-animation="animate__fadeInUp" data-delay="0.3s">
           <img src="assets/img/logos/mysql.svg" alt="SQL" class="icon" />
           <h3>SQL</h3>
         </div>
@@ -197,25 +188,25 @@
     </div>
 
     <div class="tech-category">
-      <h3 class="category-title">Herramientas</h3>
+      <h3 class="category-title animate__animated" data-animation="animate__fadeInLeft">{{ 'TECHNOLOGIES.TOOLS_TITLE' | translate }}</h3>
       <div class="service-grid">
-        <div class="service-card">
+        <div class="service-card animate__animated" data-animation="animate__fadeInUp" data-delay="0s">
           <img src="assets/img/logos/webstorm.svg" alt="Webstorm" class="icon" />
           <h3>Webstorm</h3>
         </div>
-        <div class="service-card">
+        <div class="service-card animate__animated" data-animation="animate__fadeInUp" data-delay="0.1s">
           <img src="assets/img/logos/eclipse.svg" alt="Eclipse" class="icon" />
           <h3>Eclipse</h3>
         </div>
-        <div class="service-card">
+        <div class="service-card animate__animated" data-animation="animate__fadeInUp" data-delay="0.2s">
           <img src="assets/img/logos/GitHub_light.svg" alt="Git & GitHub" class="icon" />
           <h3>Git & GitHub</h3>
         </div>
-        <div class="service-card">
+        <div class="service-card animate__animated" data-animation="animate__fadeInUp" data-delay="0.3s">
           <img src="assets/img/logos/figma.svg" alt="Figma" class="icon" />
           <h3>Figma</h3>
         </div>
-        <div class="service-card">
+        <div class="service-card animate__animated" data-animation="animate__fadeInUp" data-delay="0.4s">
           <img src="assets/img/logos/aws_light.svg" alt="AWS" class="icon" />
           <h3>AWS</h3>
         </div>
@@ -224,20 +215,19 @@
   </div>
 </section>
 
-
-
+---
 
 <section class="faq">
   <div class="container">
-    <h2>Preguntas Frecuentes</h2>
+    <h2 class="animate__animated" data-animation="animate__fadeInUp">{{ 'FAQ.TITLE' | translate }}</h2>
     <div class="accordion">
       <div class="accordion-item" *ngFor="let item of preguntas; let i = index">
-        <div class="accordion-header" (click)="toggle(i)">
-          <span class="preguntas">{{ item.pregunta }}</span>
+        <div class="accordion-header animate__animated" data-animation="animate__fadeIn" data-delay="0s" (click)="toggle(i)">
+          <span class="preguntas">{{ item.QUESTION }}</span>
           <span class="arrow" [class.rotate]="activo === i">&#9662;</span>
         </div>
         <div class="accordion-body" [class.show]="activo === i">
-          <p>{{ item.respuesta }}</p>
+          <p class="animate__animated" data-animation="animate__fadeIn">{{ item.ANSWER }}</p>
         </div>
       </div>
     </div>
@@ -245,42 +235,30 @@
 </section>
 
 
+---
+
 <section class="contact-form" id="contacto" #contacto>
   <div class="container">
-    <h2>Contáctanos</h2>
-    <form (submit)="enviarFormulario()" #form="ngForm">
-      <input type="text" name="nombre" placeholder="Tu nombre" required [(ngModel)]="nombre">
-
-      <input type="email" name="correo" placeholder="Tu correo electrónico" required [(ngModel)]="correo">
-
-      <input type="text" name="asunto" placeholder="Asunto" required [(ngModel)]="asunto">
-
-      <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required
-                [(ngModel)]="cuerpoMensaje"></textarea>
-
-      <button type="submit" [disabled]="form.invalid">Enviar</button>
-
+    <h2 class="animate__animated" data-animation="animate__fadeInUp">{{ 'CONTACT_FORM.TITLE' | translate }}</h2>
+    <form (submit)="enviarFormulario()" #form="ngForm" class="animate__animated" data-animation="animate__fadeInUp" data-delay="0.2s">
+      <input type="text" name="nombre" [placeholder]="'CONTACT_FORM.NAME_PLACEHOLDER' | translate" required [(ngModel)]="nombre" />
+      <input type="email" name="correo" [placeholder]="'CONTACT_FORM.EMAIL_PLACEHOLDER' | translate" required [(ngModel)]="correo" />
+      <input type="text" name="asunto" [placeholder]="'CONTACT_FORM.SUBJECT_PLACEHOLDER' | translate" required [(ngModel)]="asunto" />
+      <textarea name="mensaje" rows="5" [placeholder]="'CONTACT_FORM.MESSAGE_PLACEHOLDER' | translate" required [(ngModel)]="cuerpoMensaje"></textarea>
+      <button type="submit" [disabled]="form.invalid">{{ 'CONTACT_FORM.BUTTON_TEXT' | translate }}</button>
       <div *ngIf="mensajeEstado" [ngClass]="{'alert-success': isSuccess, 'alert-danger': !isSuccess}" class="mt-3">
         {{ mensajeEstado }}
       </div>
     </form>
   </div>
 </section>
+
+---
+
 <section class="cta-final">
   <div class="container">
-    <h2>¿Listo para transformar tu idea en software?</h2>
-    <p>Contáctanos y empieza a construir tu solución digital personalizada con Digital-Veltrix.</p>
-    <button (click)="irA('contacto')"  >Contáctanos</button>
+    <h2 class="animate__animated" data-animation="animate__bounceIn">{{ 'CTA_FINAL.TITLE' | translate }}</h2>
+    <p class="animate__animated" data-animation="animate__fadeInUp" data-delay="0.2s">{{ 'CTA_FINAL.SUBTITLE' | translate }}</p>
+    <button class="animate__animated" data-animation="animate__zoomIn" data-delay="0.4s" (click)="irA('contacto')">{{ 'CTA_FINAL.BUTTON_TEXT' | translate }}</button>
   </div>
 </section>
-
-
-<!--<button class="scroll-to-top" [routerLink]="['/']" (click)="scrollToTop()">-->
-<!--  <svg class="svgIcon" viewBox="0 0 384 512">-->
-<!--    <path-->
-<!--      d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"-->
-<!--    ></path>-->
-<!--  </svg>-->
-<!--</button>-->
-
-
