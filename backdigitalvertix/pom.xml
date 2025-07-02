@@ -12,7 +12,7 @@
 	<groupId>com.digital.vertix</groupId>
 	<artifactId>backdigitalvertix</artifactId>
 	<version>0.0.4-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>backdigitalvertix</name>
 	<description>This is an application to promote Digital Vertix, where the
 		service of creating, building, designing and arranging web pages and web
@@ -72,13 +72,21 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!-- Embeed tomcat -->
+		<!-- Maneja el puente entre API Gateway y Spring Boot 3 -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
+			<groupId>com.amazonaws.serverless</groupId>
+			<artifactId>aws-serverless-java-container-springboot3</artifactId>
+			<version>2.1.4</version>
 		</dependency>
 
+		<!-- Opcional, acelera los cold‑starts generando un índice de
+		componentes -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-indexer</artifactId>
+			<version>${spring-framework.version}</version>
+			<optional>true</optional>
+		</dependency>
 		<!-- junit test for spring boot -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -151,7 +159,27 @@
 					</execution>
 				</executions>
 			</plugin>
-
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.5.1</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<!-- Evita que Tomcat se mezcle en el paquete -->
+							<artifactSet>
+								<excludes>
+									<exclude>org.apache.tomcat.embed:*</exclude>
+								</excludes>
+							</artifactSet>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
