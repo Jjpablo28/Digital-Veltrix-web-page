@@ -1,6 +1,0 @@
-[build.environment]
-  NODE_VERSION = "20.12.2"
-
-[build]
-  command = "npm run build"
-  publish = "Angular/project/dist/project"
