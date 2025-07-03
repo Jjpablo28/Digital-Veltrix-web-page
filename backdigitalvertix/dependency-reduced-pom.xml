@@ -10,7 +10,7 @@
   <groupId>com.digital.vertix</groupId>
   <artifactId>backdigitalvertix</artifactId>
   <name>backdigitalvertix</name>
-  <version>0.0.4-SNAPSHOT</version>
+  <version>0.0.1-SNAPSHOT</version>
   <description>This is an application to promote Digital Vertix, where the
 		service of creating, building, designing and arranging web pages and web
 		applications is offered.</description>
