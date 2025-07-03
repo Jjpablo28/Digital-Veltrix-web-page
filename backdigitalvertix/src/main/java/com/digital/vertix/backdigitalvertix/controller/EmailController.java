@@ -35,7 +35,7 @@ import jakarta.mail.MessagingException;
  */
 @RestController
 @RequestMapping("/email")
-@CrossOrigin(origins = { "*" })
+
 
 public class EmailController {
 	/**

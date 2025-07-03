@@ -39,7 +39,7 @@ public class StreamLambdaHandler implements RequestStreamHandler {
 
 	static {
 		try {
-			handler = SpringBootLambdaContainerHandler.getAwsProxyHandler(Application.class);
+			handler = SpringBootLambdaContainerHandler.getAwsProxyHandler(BackdigitalvertixApplication.class);
 		} catch (ContainerInitializationException e) {
 			throw new RuntimeException("No se pudo iniciar Spring", e);
 		}
