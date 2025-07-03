@@ -9,6 +9,7 @@ import com.amazonaws.serverless.exceptions.ContainerInitializationException;
 import com.amazonaws.serverless.proxy.model.AwsProxyRequest;
 import com.amazonaws.serverless.proxy.model.AwsProxyResponse;
 import com.amazonaws.serverless.proxy.spring.SpringBootLambdaContainerHandler;
+import com.amazonaws.serverless.proxy.spring.SpringBootProxyHandlerBuilder;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestStreamHandler;
 
@@ -35,13 +36,16 @@ public class StreamLambdaHandler implements RequestStreamHandler {
 	 * posteriores de la función Lambda. Maneja la conversión de solicitudes de AWS
 	 * Proxy a solicitudes internas de Spring Boot y viceversa para las respuestas.
 	 */
-	private static final SpringBootLambdaContainerHandler<AwsProxyRequest, AwsProxyResponse> handler;
-
+	private static final SpringBootLambdaContainerHandler<Object, AwsProxyResponse> handler;
 	static {
 		try {
-			handler = SpringBootLambdaContainerHandler.getAwsProxyHandler(BackdigitalvertixApplication.class);
+			handler = new SpringBootProxyHandlerBuilder<>().defaultProxy().asyncInit()
+					.springBootApplication(BackdigitalvertixApplication.class) // <-- Cambia a tu clase principal Spring Boot
+					.buildAndInitialize();
 		} catch (ContainerInitializationException e) {
-			throw new RuntimeException("No se pudo iniciar Spring", e);
+			// Falla crítica: no se pudo iniciar Spring
+			e.printStackTrace();
+			throw new RuntimeException("No se pudo iniciar el contenedor Spring Boot", e);
 		}
 	}
 
