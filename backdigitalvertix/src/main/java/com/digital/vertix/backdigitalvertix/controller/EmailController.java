@@ -4,8 +4,10 @@
  */
 package com.digital.vertix.backdigitalvertix.controller;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,7 +21,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.digital.vertix.backdigitalvertix.dto.EmailDTO;
+import com.digital.vertix.backdigitalvertix.model.Factura;
 import com.digital.vertix.backdigitalvertix.service.EmailService;
+import com.digital.vertix.backdigitalvertix.service.FacturaService;
+import com.itextpdf.text.DocumentException;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+
+import org.springframework.web.bind.annotation.GetMapping; // Necesario para el ejemplo de descarga si lo usas con @GetMapping
+import org.springframework.web.bind.annotation.PathVariable; // Necesario para el ejemplo de descarga si usas PathVariable
+
+import java.io.IOException;
+import java.util.ArrayList; // Para el ejemplo de factura de prueba
+import java.util.List; // Para el ejemplo de factura de prueba
+import java.time.LocalDateTime; // Para el ejemplo de factura de prueba
 
 import jakarta.mail.MessagingException;
 
@@ -35,7 +51,6 @@ import jakarta.mail.MessagingException;
  */
 @RestController
 @RequestMapping("/email")
-
 
 public class EmailController {
 	/**
@@ -167,4 +182,107 @@ public class EmailController {
 		return ResponseEntity.status(HttpStatus.OK).body(Map.of("message",
 				"Tu mensaje ha sido enviado exitosamente. ¡Gracias por contactarnos!", "success", true));
 	}
+
+	@Autowired
+	private FacturaService facturaService;
+
+	// Este es tu endpoint original, modificado para llamar a la nueva lógica
+	// que abre el PDF en el visor del sistema operativo.
+//    @PostMapping("/imprimir")
+//    public ResponseEntity<String> imprimir(@RequestBody Factura factura) {
+//        try {
+//            // Imprime el texto en la impresora física
+//           // facturaService.imprimirFacturaTexto(factura);
+//            System.out.println("Factura de texto enviada a impresora.");
+//            facturaService.imprimirFacturaDesdePdfComoTexto(facturaService.generarPdfFacturaEstiloRecibo(factura));
+//            
+//
+//            return ResponseEntity.ok("Factura procesada: texto enviado a impresora y PDF intentado abrir en visor.");
+//        } catch (Exception e) {
+//            e.printStackTrace(); // Imprime la traza completa de la excepción para depuración
+//            // Puedes devolver un mensaje más amigable al usuario en producción
+//            return ResponseEntity.status(500).body("Error al procesar factura: " + e.getMessage());
+//        }
+//    }
+	@PostMapping("/imprimir")
+	public ResponseEntity<String> imprimir(@RequestBody Factura factura) {
+
+		try {
+			if (factura == null || factura.getItems().isEmpty()) {
+				return ResponseEntity.badRequest().body("La factura está vacía o no contiene ítems.");
+			}
+
+			System.out.println("Factura de texto enviada a impresora.");
+
+			facturaService.imprimirFacturaDesdePdfComoTexto(facturaService.generarPdfFacturaEstiloRecibo(factura));
+			facturaService.imprimirFacturaTexto(factura);
+			facturaService.generarPdfFacturaEstiloRecibo(factura);
+			facturaService.abrirFacturaPdfEnVisor(factura);
+			System.out.println("Factura de texto enviada a impresora.");
+
+			return ResponseEntity.ok("Factura procesada: texto enviado a impresora y PDF intentado abrir en visor.");
+		} catch (Exception e) {
+			e.printStackTrace(); // Imprime la traza completa de la excepción para depuración
+			return ResponseEntity.status(500).body("Error al procesar factura: " + e.getMessage());
+		}
+	}
+
+	
+	@PostMapping("/obtener-pdf-para-navegador") 
+	public ResponseEntity<byte[]> obtenerPdfParaNavegador(@RequestBody Factura factura) {
+		try {
+			byte[] pdfBytes = facturaService.generarPdfFacturaEstiloRecibo(factura); 
+
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_PDF);
+			
+			headers.setContentDispositionFormData("inline",
+					"factura_" + factura.getCliente().replaceAll("\\s+", "") + ".pdf");
+			headers.setContentLength(pdfBytes.length);
+
+			return ResponseEntity.ok().headers(headers).body(pdfBytes);
+
+		} catch (DocumentException | IOException e) {
+			e.printStackTrace(); 
+			return ResponseEntity.status(500).build(); 
+		}
+	}
+
+	// --- OPCIONAL: Ejemplo de cómo podrías obtener una factura por ID y devolver
+	// PDF ---
+	// Esto sería más común si la factura ya está en la DB y no la envías en el
+	// body.
+	// Tendrías que implementar obtenerFacturaDesdeDB() en tu servicio.
+	/*
+	 * @GetMapping("/obtener-pdf-por-id/{id}") public ResponseEntity<byte[]>
+	 * obtenerPdfPorId(@PathVariable Long id) { try { // Aquí deberías obtener la
+	 * factura por ID de tu base de datos Factura factura =
+	 * obtenerFacturaDesdeDB(id); // <--- DEBES IMPLEMENTAR ESTE MÉTODO EN TU
+	 * SERVICIO O CONTROLADOR if (factura == null) { return
+	 * ResponseEntity.notFound().build(); }
+	 * 
+	 * byte[] pdfBytes = facturaService.generarPdfFactura(factura);
+	 * 
+	 * HttpHeaders headers = new HttpHeaders();
+	 * headers.setContentType(MediaType.APPLICATION_PDF);
+	 * headers.setContentDispositionFormData("inline", "factura_" + id + ".pdf");
+	 * headers.setContentLength(pdfBytes.length);
+	 * 
+	 * return ResponseEntity.ok() .headers(headers) .body(pdfBytes);
+	 * 
+	 * } catch (DocumentException | IOException e) { e.printStackTrace(); return
+	 * ResponseEntity.internalServerError().build(); } }
+	 * 
+	 * // Método de ejemplo (deberías tener tu lógica real para obtener la factura
+	 * de la DB) private Factura obtenerFacturaDesdeDB(Long id) { // Simplemente
+	 * para que compile, en la vida real iría a tu repositorio/DB if (id == 1L) {
+	 * Factura testFactura = new Factura();
+	 * testFactura.setCliente("Cliente de Prueba ID 1");
+	 * testFactura.setFecha(LocalDateTime.now()); List<Item> items = new
+	 * ArrayList<>(); items.add(new Item("Producto Unico", 1, 10000.0));
+	 * testFactura.setItems(items);
+	 * testFactura.setTotal(items.stream().mapToDouble(item -> item.getCantidad() *
+	 * item.getPrecio()).sum()); return testFactura; } return null; }
+	 */
+
 }
