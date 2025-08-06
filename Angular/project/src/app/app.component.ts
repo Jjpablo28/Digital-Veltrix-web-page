@@ -8,10 +8,12 @@ import {Component, HostListener} from '@angular/core';
 export class AppComponent {
   mostrarScrollTop: boolean = false;
   title = 'Digital Veltrix';
+
   scrollToTop(): void {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({top: 0, behavior: 'smooth'});
 
   }
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.mostrarScrollTop = window.scrollY > 200;

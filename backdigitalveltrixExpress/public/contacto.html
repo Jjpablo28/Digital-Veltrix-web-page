@@ -1,0 +1,53 @@
+<!-- public/contacto.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Enviar correo</title>
+</head>
+<body>
+<h1>Enviar correo</h1>
+<form id="formContacto">
+    <input type="text" id="nombre" placeholder="Nombre">
+    <input type="email" id="email" placeholder="Correo">
+    <textarea id="mensaje" placeholder="Mensaje"></textarea>
+    <button type="submit">Enviar</button>
+</form>
+
+<script>
+    const form = document.getElementById('formContacto');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const nombre = document.getElementById('nombre').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const mensaje = document.getElementById('mensaje').value.trim();
+
+        if (!nombre || !email || !mensaje) {
+            alert('Todos los campos son obligatorios');
+            return;
+        }
+
+        try {
+            const response = await fetch('/api/enviarCorreoContacto', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nombre, email, mensaje })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                alert('Correo enviado correctamente');
+                form.reset();
+            } else {
+                alert('Error: ' + data.error);
+            }
+        } catch (error) {
+            console.error('Error en la petición:', error);
+        }
+    });
+</script>
+
+</body>
+</html>
