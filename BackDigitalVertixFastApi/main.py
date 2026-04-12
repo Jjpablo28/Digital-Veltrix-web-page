@@ -56,13 +56,10 @@ def enviar_email_logic(dto: EmailDTO):
     msg.attach(MIMEText(cuerpo_html, 'html'))
 
     try:
-        # --- EL TRUCO PARA RENDER ---
-        # 1. Forzamos a que el nombre 'smtp.gmail.com' se resuelva solo a IPv4
-        # Esto evita el error "Network is unreachable"
-        host_ip = socket.gethostbyname('smtp.gmail.com')
-        
-        # 2. Usamos SMTP_SSL (Puerto 465) que es más estable en nubes
-        server = smtplib.SMTP_SSL(host_ip, 465, timeout=30)
+        # Aumentamos el timeout a 30 segundos para darle tiempo a Render
+        # Y volvemos a usar el host directamente
+        print("DEBUG: Intentando conectar a Gmail...")
+        server = smtplib.SMTP_SSL('smtp.gmail.com', 465, timeout=30)
         
         server.login(destino_fijo, password)
         server.send_message(msg)
@@ -70,7 +67,7 @@ def enviar_email_logic(dto: EmailDTO):
         print("DEBUG: ¡Correo enviado con éxito!")
         
     except Exception as e:
-        print(f"DETALLE DEL ERROR: {type(e).__name__}: {str(e)}")
+        print(f"DETALLE DEL ERROR EN LOGS: {type(e).__name__}: {str(e)}")
         raise e
 
 # --- ENDPOINT (Equivalente a EmailController.java) ---
