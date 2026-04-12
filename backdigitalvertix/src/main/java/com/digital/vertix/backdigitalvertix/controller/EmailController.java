@@ -12,7 +12,6 @@ import java.util.regex.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.digital.vertix.backdigitalvertix.dto.EmailDTO;
 import com.digital.vertix.backdigitalvertix.service.EmailService;
-
+import jakarta.validation.Valid;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import jakarta.mail.MessagingException;
 
 /**
@@ -35,7 +36,6 @@ import jakarta.mail.MessagingException;
  */
 @RestController
 @RequestMapping("/email")
-
 
 public class EmailController {
 	/**
@@ -74,83 +74,51 @@ public class EmailController {
 	}
 
 	/**
-	 * Endpoint para enviar un correo de contacto desde el frontend.
+	 * Endpoint para recibir y procesar los mensajes del formulario de contacto web.
 	 * <p>
-	 * Recibe los datos del formulario de contacto (nombre del remitente, correo del
-	 * remitente, asunto y cuerpo del mensaje) a través de un objeto
-	 * {@link EmailDTO}. Construye el contenido del correo y lo envía a una
-	 * dirección de correo electrónico fija de la empresa, configurando el campo
-	 * "Reply-To" para facilitar la respuesta directa al usuario que llenó el
-	 * formulario.
+	 * Este método valida automáticamente los datos entrantes utilizando las reglas
+	 * definidas en {@link EmailDTO}. Si la validación es exitosa, construye un
+	 * correo electrónico en formato HTML y lo envía a la bandeja de entrada de la
+	 * empresa.
 	 * </p>
 	 *
-	 * @param emailDTO Un objeto {@link EmailDTO} que contiene:
-	 *                 <ul>
-	 *                 <li>{@code nombreRemitente}: El nombre de la persona que
-	 *                 envía el mensaje.</li>
-	 *                 <li>{@code correoRemitente}: La dirección de correo
-	 *                 electrónico de la persona que envía el mensaje.</li>
-	 *                 <li>{@code asunto}: El asunto del mensaje.</li>
-	 *                 <li>{@code mensaje}: El cuerpo o contenido principal del
-	 *                 mensaje.</li>
-	 *                 </ul>
-	 * @return Un {@link ResponseEntity} que indica el estado de la operación:
+	 * @param emailDTO      Objeto que contiene los datos enviados desde el frontend
+	 *                      (nombre, correo, asunto y mensaje). Se valida mediante
+	 *                      {@code @Valid}.
+	 * @param bindingResult Objeto inyectado por Spring que captura y contiene el
+	 *                      resultado de la validación del {@code emailDTO}.
+	 * @return Un {@link ResponseEntity} que contiene un JSON con el resultado de la
+	 *         operación:
 	 *         <ul>
-	 *         <li>{@code HttpStatus.OK} (200) con un mensaje de éxito si el correo
-	 *         se envió correctamente.</li>
-	 *         <li>{@code HttpStatus.BAD_REQUEST} (400) con un mensaje de error si
-	 *         hubo un problema al enviar el correo.</li>
+	 *         <li><b>200 OK:</b> Si el correo se envió correctamente
+	 *         ({@code success: true}).</li>
+	 *         <li><b>400 BAD REQUEST:</b> Si los datos del formulario no cumplen
+	 *         con las reglas de validación. Incluye un mapa con los campos que
+	 *         fallaron y sus motivos ({@code success: false}).</li>
+	 *         <li><b>500 INTERNAL SERVER ERROR:</b> Si ocurre una excepción al
+	 *         intentar comunicarse con el servidor de correos
+	 *         ({@code success: false}).</li>
 	 *         </ul>
 	 */
 	@PostMapping("/enviarCorreoContacto")
-	public ResponseEntity<?> enviarCorreoContacto(@RequestBody EmailDTO emailDTO) {
-		// Dirección de correo a la que se enviará el mensaje (tu correo de soporte, por
-		// ejemplo)
+	public ResponseEntity<?> enviarCorreoContacto(@Valid @RequestBody EmailDTO emailDTO, BindingResult bindingResult) {
 		String destinoFijoEmpresa = "veltrixdigital.co@gmail.com";
 
-		// --- Validaciones manuales ---
-		Map<String, String> errors = new HashMap<>();
-
-		if (emailDTO.getNombreRemitente() == null || emailDTO.getNombreRemitente().trim().isEmpty()) {
-			errors.put("nombreRemitente", "El nombre del remitente no puede estar vacío.");
-		}
-		if (emailDTO.getCorreoRemitente() == null || emailDTO.getCorreoRemitente().trim().isEmpty()) {
-			errors.put("correoRemitente", "El correo del remitente no puede estar vacío.");
-		} else {
-			// Validar formato del correo electrónico usando la expresión regular
-			Matcher matcher = EMAIL_PATTERN.matcher(emailDTO.getCorreoRemitente());
-			if (!matcher.matches()) {
-				errors.put("correoRemitente", "El formato del correo electrónico no es válido.");
+		// Si las reglas del DTO fallan, Spring lo detecta aquí automáticamente
+		if (bindingResult.hasErrors()) {
+			Map<String, String> errors = new HashMap<>();
+			for (FieldError error : bindingResult.getFieldErrors()) {
+				errors.put(error.getField(), error.getDefaultMessage());
 			}
-		}
-		if (emailDTO.getAsunto() == null || emailDTO.getAsunto().trim().isEmpty()) {
-			errors.put("asunto", "El asunto no puede estar vacío.");
-		}
-		if (emailDTO.getMensaje() == null || emailDTO.getMensaje().trim().isEmpty()) {
-			errors.put("mensaje", "El mensaje no puede estar vacío.");
-		}
-		// Puedes añadir una validación de longitud mínima para el mensaje si lo deseas
-		if (emailDTO.getMensaje() != null && emailDTO.getMensaje().trim().length() < 2) {
-			errors.put("mensaje", "El mensaje debe tener al menos 10 caracteres.");
-		}
-
-		// Si hay errores, devolver la respuesta con los detalles de la validación
-		// fallida
-		if (!errors.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
 					.body(Map.of("message", "Error de validación", "errors", errors, "success", false));
 		}
-		// --- Fin de validaciones manuales ---
 
-		// Construir el cuerpo del correo que recibirá tu empresa, incluyendo la
-		// información del remitente.
 		String cuerpoParaEmpresa = "<h3>Nuevo mensaje de contacto</h3>" + "<p><strong>Nombre:</strong> "
 				+ emailDTO.getNombreRemitente() + "</p>" + "<p><strong>Correo del remitente:</strong> "
 				+ emailDTO.getCorreoRemitente() + "</p>" + "<p><strong>Asunto:</strong> " + emailDTO.getAsunto()
 				+ "</p>" + "<hr>" + "<p><strong>Mensaje:</strong></p>" + "<p>" + emailDTO.getMensaje() + "</p>";
 
-		// El asunto del correo que recibirá tu empresa, con un prefijo para
-		// identificarlo.
 		String asuntoFinal = "Mensaje de Contacto desde Web: " + emailDTO.getAsunto();
 
 		try {
@@ -158,12 +126,10 @@ public class EmailController {
 					emailDTO.getNombreRemitente(), emailDTO.getCorreoRemitente());
 		} catch (MessagingException e) {
 			System.err.println("Error al enviar el correo de contacto: " + e.getMessage());
-			// Error al enviar el correo debido a un problema interno del servidor de correo
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("message",
 					"Error al enviar tu mensaje, por favor inténtalo de nuevo más tarde.", "success", false));
 		}
 
-		// Éxito al enviar el correo
 		return ResponseEntity.status(HttpStatus.OK).body(Map.of("message",
 				"Tu mensaje ha sido enviado exitosamente. ¡Gracias por contactarnos!", "success", true));
 	}

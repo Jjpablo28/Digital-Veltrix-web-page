@@ -4,10 +4,8 @@
  */
 package com.digital.vertix.backdigitalvertix;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 /**
  * Clase principal de la aplicación Spring Boot para Backdigitalvertix. Esta
@@ -27,15 +25,5 @@ public class BackdigitalvertixApplication {
 		SpringApplication.run(BackdigitalvertixApplication.class, args);
 	}
 
-	/**
-	 * Define un bean de Spring para ModelMapper. ModelMapper es una librería que
-	 * facilita el mapeo de objetos entre diferentes capas (por ejemplo, de
-	 * entidades a DTOs y viceversa).
-	 *
-	 * @return Una nueva instancia de ModelMapper.
-	 */
-	@Bean
-	ModelMapper getModelMapper() {
-		return new ModelMapper();
-	}
+	
 }
