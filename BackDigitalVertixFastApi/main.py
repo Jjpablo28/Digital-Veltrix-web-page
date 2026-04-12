@@ -66,8 +66,8 @@ def enviar_email_logic(dto: EmailDTO):
 
     try:
         # Configuración del servidor SMTP (Gmail)
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.starttls()
+        server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+        
         server.login(destino_fijo, password)
         server.send_message(msg)
         server.quit()
