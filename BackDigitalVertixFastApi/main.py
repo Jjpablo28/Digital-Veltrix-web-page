@@ -56,10 +56,17 @@ def enviar_email_logic(dto: EmailDTO):
     msg.attach(MIMEText(cuerpo_html, 'html'))
 
     try:
-        # Aumentamos el timeout a 30 segundos para darle tiempo a Render
-        # Y volvemos a usar el host directamente
-        print("DEBUG: Intentando conectar a Gmail...")
-        server = smtplib.SMTP_SSL('smtp.gmail.com', 465, timeout=30)
+        print("DEBUG: Forzando resolución de IP a IPv4...")
+        # Resolvemos el nombre a una IP física (esto evita que intente usar IPv6)
+        # 0.0.0.0 -> indica que no nos importa la interfaz, pero socket.AF_INET fuerza IPv4
+        host_ip = socket.getaddrinfo('smtp.gmail.com', 465, family=socket.AF_INET)[0][4][0]
+        print(f"DEBUG: Conectando a IP: {host_ip}")
+
+        # Usamos la IP resuelta directamente con un timeout generoso
+        server = smtplib.SMTP_SSL(host_ip, 465, timeout=30)
+        
+        # IMPORTANTE: Como usamos la IP, Gmail podría quejarse del certificado. 
+        # Si esto falla, intentaremos otra técnica, pero esta suele ser la clave.
         
         server.login(destino_fijo, password)
         server.send_message(msg)
@@ -67,6 +74,7 @@ def enviar_email_logic(dto: EmailDTO):
         print("DEBUG: ¡Correo enviado con éxito!")
         
     except Exception as e:
+        # Imprimimos el error exacto para cazarlo
         print(f"DETALLE DEL ERROR EN LOGS: {type(e).__name__}: {str(e)}")
         raise e
 
