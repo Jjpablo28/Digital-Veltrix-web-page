@@ -16,10 +16,6 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class BackdigitalvertixApplication {
 
-	// 🔽 Esta línea fuerza la inclusión de StreamLambdaHandler.class en el JAR
-	// final
-	@SuppressWarnings("unused")
-	private final Class<?> forceIncludeHandler = StreamLambdaHandler.class;
 
 	/**
 	 * Método principal que sirve como punto de entrada de la aplicación. Utiliza
