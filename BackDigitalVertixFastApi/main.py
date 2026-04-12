@@ -7,6 +7,7 @@ from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, EmailStr, Field
 from dotenv import load_dotenv
+import socket
 load_dotenv()
 app = FastAPI(
     title="Backdigitalvertix API",
@@ -39,51 +40,38 @@ class EmailDTO(BaseModel):
 # --- LÓGICA DE ENVÍO (Equivalente a EmailService.java) ---
 def enviar_email_logic(dto: EmailDTO):
     destino_fijo = "veltrixdigital.co@gmail.com"
-    # Recuperamos la contraseña de la variable de entorno
     password = os.getenv("EMAIL_PASSWORD")
     
     if not password:
-        raise HTTPException(status_code=500, detail="Configuración de correo incompleta en el servidor")
+        print("DEBUG: La variable EMAIL_PASSWORD está vacía")
+        raise Exception("Configuración de contraseña faltante")
 
-    # Crear el mensaje HTML
     msg = MIMEMultipart()
     msg['From'] = destino_fijo
     msg['To'] = destino_fijo
-    msg['Subject'] = f"Mensaje de Contacto desde Web: {dto.asunto}"
-    # Reply-To para poder responder directamente al usuario
+    msg['Subject'] = f"Mensaje de Contacto: {dto.asunto}"
     msg.add_header('reply-to', dto.correoRemitente)
 
-    cuerpo_html = f"""
-    <h3>Nuevo mensaje de contacto</h3>
-    <p><strong>Nombre:</strong> {dto.nombreRemitente}</p>
-    <p><strong>Correo del remitente:</strong> {dto.correoRemitente}</p>
-    <p><strong>Asunto:</strong> {dto.asunto}</p>
-    <hr>
-    <p><strong>Mensaje:</strong></p>
-    <p>{dto.mensaje}</p>
-    """
+    cuerpo_html = f"<h3>Nuevo mensaje</h3><p>De: {dto.nombreRemitente}</p><p>{dto.mensaje}</p>"
     msg.attach(MIMEText(cuerpo_html, 'html'))
 
     try:
-        # Configuración del servidor SMTP (Gmail)
-        server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+        # --- EL TRUCO PARA RENDER ---
+        # 1. Forzamos a que el nombre 'smtp.gmail.com' se resuelva solo a IPv4
+        # Esto evita el error "Network is unreachable"
+        host_ip = socket.gethostbyname('smtp.gmail.com')
+        
+        # 2. Usamos SMTP_SSL (Puerto 465) que es más estable en nubes
+        server = smtplib.SMTP_SSL(host_ip, 465, timeout=10)
         
         server.login(destino_fijo, password)
         server.send_message(msg)
         server.quit()
-    except Exception as e:
-        # Esto imprimirá el error detallado en los logs de Render
-        print(f"DETALLE DEL ERROR: {type(e).__name__}: {str(e)}")
+        print("DEBUG: ¡Correo enviado con éxito!")
         
-        # Esto enviará el error real a la pantalla de Swagger para que lo veas
-        raise HTTPException(
-            status_code=500,
-            detail={
-                "message": "Error al enviar correo",
-                "error_tecnico": str(e), # <--- ESTO NOS DIRÁ LA VERDAD
-                "success": False
-            }
-        )
+    except Exception as e:
+        print(f"DETALLE DEL ERROR: {type(e).__name__}: {str(e)}")
+        raise e
 
 # --- ENDPOINT (Equivalente a EmailController.java) ---
 @app.post("/email/enviarCorreoContacto")
