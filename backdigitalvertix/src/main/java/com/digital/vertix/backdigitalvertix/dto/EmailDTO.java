@@ -3,7 +3,9 @@
  * en la aplicación digitalvertix backend.
  */
 package com.digital.vertix.backdigitalvertix.dto;
-
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 /**
  * Clase de Transferencia de Datos (DTO) para representar la información de un
  * correo electrónico.
@@ -18,22 +20,28 @@ public class EmailDTO {
 	/**
 	 * Nombre de la persona que envía el correo (remitente del formulario).
 	 */
+	@NotBlank(message = "El nombre del remitente no puede estar vacío.")
 	private String nombreRemitente;
 
 	/**
 	 * Dirección de correo electrónico de la persona que envía el correo (remitente
 	 * del formulario).
 	 */
+	@NotBlank(message = "El correo del remitente no puede estar vacío.")
+	@Email(message = "El formato del correo electrónico no es válido.")
 	private String correoRemitente;
 
 	/**
 	 * Asunto del correo electrónico.
 	 */
+	@NotBlank(message = "El asunto no puede estar vacío.")
 	private String asunto;
 
 	/**
 	 * Cuerpo o mensaje principal del correo electrónico.
 	 */
+	@NotBlank(message = "El mensaje no puede estar vacío.")
+	@Size(min = 10, message = "El mensaje debe tener al menos 10 caracteres.")
 	private String mensaje;
 
 	/**
