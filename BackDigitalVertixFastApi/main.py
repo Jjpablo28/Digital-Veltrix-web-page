@@ -72,12 +72,15 @@ def enviar_email_logic(dto: EmailDTO):
         server.send_message(msg)
         server.quit()
     except Exception as e:
-        # Esto imprimirá el error real en tu consola de VS Code
-        print(f"DEBUG: Error real detectado: {e}") 
+        # Esto imprimirá el error detallado en los logs de Render
+        print(f"DETALLE DEL ERROR: {type(e).__name__}: {str(e)}")
+        
+        # Esto enviará el error real a la pantalla de Swagger para que lo veas
         raise HTTPException(
             status_code=500,
             detail={
-                "message": f"Error técnico: {str(e)}", # Ahora Swagger te dirá el error real
+                "message": "Error al enviar correo",
+                "error_tecnico": str(e), # <--- ESTO NOS DIRÁ LA VERDAD
                 "success": False
             }
         )
