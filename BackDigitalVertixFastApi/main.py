@@ -62,7 +62,7 @@ def enviar_email_logic(dto: EmailDTO):
         host_ip = socket.gethostbyname('smtp.gmail.com')
         
         # 2. Usamos SMTP_SSL (Puerto 465) que es más estable en nubes
-        server = smtplib.SMTP_SSL(host_ip, 465, timeout=10)
+        server = smtplib.SMTP_SSL(host_ip, 465, timeout=30)
         
         server.login(destino_fijo, password)
         server.send_message(msg)
