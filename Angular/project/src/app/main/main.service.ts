@@ -19,7 +19,7 @@ interface RespuestaCorreo {
 })
 export class MainService {
 
-  private apiUrl = 'https://vf80c99t7i.execute-api.us-east-1.amazonaws.com/DigitalVertix/enviarCorreoContacto';
+  private apiUrl = 'https://digital-veltrix-back-page.onrender.com/email/enviarCorreoContacto';
 
   constructor(private http: HttpClient) { }
 
