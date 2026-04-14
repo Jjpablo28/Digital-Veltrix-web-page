@@ -4,13 +4,19 @@
     <!-- Logo + Título -->
     <div class="nav-header">
       <div class="leading-icon">
-        <img [routerLink]="['/']" src="https://res.cloudinary.com/dzueiucg9/image/upload/c_scale,h_105,w_105/Logo_fcmscv.png" alt="Logo" />
+        <a href="/" routerLink="/">
+          <img src="https://res.cloudinary.com/dzueiucg9/image/upload/c_scale,h_105,w_105/Logo_fcmscv.png" alt="Logo" />
+        </a>
       </div>
-      <div [routerLink]="['/']" class="headline">{{ 'NAV.BRAND' | translate }}</div>
+
+      <a href="/" routerLink="/" class="headline">
+        {{ 'NAV.BRAND' | translate }}
+      </a>
     </div>
 
     <!-- Contenedor combinado para idioma + botones -->
     <div class="nav-controls">
+
       <!-- Selector de idioma -->
       <div class="language-wrapper">
         <div class="language-selector" (click)="toggleDropdown($event)">
@@ -18,6 +24,7 @@
             <img [src]="selectedLanguage.flag" width="20" alt="{{ selectedLanguage.label }}" />
             <span>{{ selectedLanguage.label }}</span>
           </button>
+
           <div *ngIf="showDropdown" class="dropdown">
             <div
               *ngFor="let lang of languages"
@@ -33,9 +40,25 @@
 
       <!-- Botones de navegación -->
       <div class="nav-actions">
-        <button class="btn" (click)="scrollToId('nosotros')">{{ 'NAV.WHO_WE_ARE' | translate }}</button>
-        <button class="btn" (click)="scrollToId('servicios')">{{ 'NAV.WHAT_WE_OFFER' | translate }}</button>
-        <button class="btn" (click)="scrollToId('contacto')">{{ 'NAV.CONTACT_US' | translate }}</button>
+
+        <!-- Nosotros -->
+        <button class="btn" (click)="scrollToId('nosotros')">
+          <a href="#nosotros" style="display:none;">Nosotros</a>
+          {{ 'NAV.WHO_WE_ARE' | translate }}
+        </button>
+
+        <!-- Servicios -->
+        <button class="btn" (click)="scrollToId('servicios')">
+          <a href="#servicios" style="display:none;">Servicios</a>
+          {{ 'NAV.WHAT_WE_OFFER' | translate }}
+        </button>
+
+        <!-- Contacto -->
+        <button class="btn" (click)="scrollToId('contacto')">
+          <a href="#contacto" style="display:none;">Contacto</a>
+          {{ 'NAV.CONTACT_US' | translate }}
+        </button>
+
       </div>
     </div>
 

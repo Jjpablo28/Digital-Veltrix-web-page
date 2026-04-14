@@ -3,18 +3,18 @@
     <div class="footer-column">
       <h4>{{ 'FOOTER.COMPANY_TITLE' | translate }}</h4>
       <ul>
-        <li><a (click)="scrollToId('nosotros')">{{ 'FOOTER.COMPANY_LINK_ABOUT_US' | translate }}</a></li>
-        <li><a (click)="scrollToId('contacto')">{{ 'FOOTER.COMPANY_LINK_CONTACT' | translate }}</a></li>
+        <li><a href="#nosotros" (click)="scrollToId('nosotros')">{{ 'FOOTER.COMPANY_LINK_ABOUT_US' | translate }}</a></li>
+        <li><a href="#contacto" (click)="scrollToId('contacto')">{{ 'FOOTER.COMPANY_LINK_CONTACT' | translate }}</a></li>
       </ul>
     </div>
 
     <div class="footer-column">
       <h4>{{ 'FOOTER.SERVICES_TITLE' | translate }}</h4>
       <ul>
-        <li><a href="#">{{ 'FOOTER.SERVICES_LINK_WEB_DEV' | translate }}</a></li>
-        <li><a href="#">{{ 'FOOTER.SERVICES_LINK_CUSTOM_APPS' | translate }}</a></li>
-        <li><a href="#">{{ 'FOOTER.SERVICES_LINK_UI_UX_DESIGN' | translate }}</a></li>
-        <li><a href="#">{{ 'FOOTER.SERVICES_LINK_CONSULTING' | translate }}</a></li>
+        <li><a href="/#servicios">{{ 'FOOTER.SERVICES_LINK_WEB_DEV' | translate }}</a></li>
+        <li><a href="/#servicios">{{ 'FOOTER.SERVICES_LINK_CUSTOM_APPS' | translate }}</a></li>
+        <li><a href="/#servicios">{{ 'FOOTER.SERVICES_LINK_UI_UX_DESIGN' | translate }}</a></li>
+        <li><a href="/#servicios">{{ 'FOOTER.SERVICES_LINK_CONSULTING' | translate }}</a></li>
       </ul>
     </div>
 
@@ -62,9 +62,9 @@
   <div class="footer-bottom">
     <p>{{ 'FOOTER.COPYRIGHT' | translate }}</p>
     <div class="footer-links">
-      <a [routerLink]="['/tyc']">{{ 'FOOTER.TERMS_CONDITIONS' | translate }}</a>
-      <a [routerLink]="['/politica-privacidad']">{{ 'FOOTER.PRIVACY_POLICY' | translate }}</a>
-      <a [routerLink]="['/cookies']">{{ 'FOOTER.COOKIES' | translate }}</a>
+      <a href="/tyc" routerLink="/tyc">{{ 'FOOTER.TERMS_CONDITIONS' | translate }}</a>
+      <a href="/politica-privacidad" routerLink="/politica-privacidad">{{ 'FOOTER.PRIVACY_POLICY' | translate }}</a>
+      <a href="/cookies" routerLink="/cookies">{{ 'FOOTER.COOKIES' | translate }}</a>
     </div>
   </div>
 </footer>
